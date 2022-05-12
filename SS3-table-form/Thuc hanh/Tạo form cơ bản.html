@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form</title>
+    <style>
+        .Minh {
+            font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+        }
+        .size100{
+            width: 100px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<form action="simpleform.html" method="get" class="Minh">
+    <h2>Order form</h2>
+    <p> What would you like to buy?</p>
+    <select>
+        <option value="A">A</option>
+        <option value="B">B (+ 0.5$)</option>
+        <option value="C">C (+ 0.5$)</option>
+    </select>
+    <p> How many you would like to order?</p>
+        <input type="radio" id="1" name="rd" value="1 - $100">
+        <label for="1">1 - $100</label><br>
+        <input type="radio" id="2" name="rd" value="2 - $200">
+        <label for="1">2 - $200</label><br>
+        <input type="radio" id="3" name="rd" value="3 - $300">
+        <label for="3">3 - $300</label><br>
+    <p>Name <Span style="color: red">*</Span></p>
+        <input type="text" name="First name" placeholder="First name" class="size100"/>
+        <input type="text" name="Last name" placeholder="Last name" class="size100"/>
+    <p>Email</p>
+        <input type="text" name="Email" size="35px"/>
+    <P> Phone number</P>
+        <input type="text" name="Phone 1" size="5px"/>
+        <input type="text" name="Phone 2" size="5px"/>
+        <input type="text" name="Phone 3" size="5px"/>
+    <br>
+    <br>
+    <input type="submit"/>
+</form>
+</body>
+</html>
