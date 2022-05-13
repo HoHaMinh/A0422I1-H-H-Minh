@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản phần 2</title>
+</head>
+<body style="color: blue">
+<form action="abc.xyz" method="post">
+    <table style="font-size: 5mm; background-color: yellow">
+        <tr style="background-color: darkseagreen; font-size: 1cm; text-align: left">
+            <td colspan="2" span="2">Đăng ký học viên</td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Họ và tên </Td>
+            <td><input type="text" name="Họ và tên" style="width: 7cm"></td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Ngày sinh </Td>
+            <td><input type="text" name="Ngày sinh" style="width: 4cm"></td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Giới tính </Td>
+            <td><input type="radio" id="Nam" name="Giới tính" value="Nam">
+                <label for="Nam">Nam</label>
+                <input type="radio" id="Nữ" name="Giới tính" value="Nữ">
+                <label for="Nữ">Nữ</label>
+            </td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm; vertical-align: text-top">Địa chỉ </Td>
+            <td><textarea name="Địa chỉ" rows="3" cols="30"> </textarea></td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Lớp</Td>
+            <td><select name="Lớp" id="Lớp" style="width: 2.5cm">
+                <option value="Chọn lớp">--Chọn lớp--</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select> </td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Email </Td>
+            <td><input type="text" name="Email" style="width: 5cm"></td>
+        </tr>
+        <tr>
+            <Td style="text-align: left; width: 4cm">Điện thoại </Td>
+            <td><input type="text" name="Điện thoại" style="width: 5cm"></td>
+        </tr>
+        <tr>
+            <td> </td>
+            <Td> <input type="submit" value="Đăng ký">
+                 <input type="reset" value="Nhập lại">
+            </Td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
