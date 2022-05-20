@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung dung may tinh</title>
+    <style>
+        input {width: 5cm; text-align: right}
+        h2 {font-weight: bold; color: blue}
+        p {font-weight: bold; color: blue}
+    </style>
+</head>
+<body>
+<h2>Caculator</h2>
+<input type="number" id="number1">
+<input type="number" id="number2">
+<br>
+<br>
+<button type="button" id="addition" onclick="calculation(this.id)">Addition(+)</button>
+<button type="button" id="subtraction" onclick="calculation(this.id)">Subtraction(-)</button>
+<button type="button" id="multiplication" onclick="calculation(this.id)">Multiplication(*)</button>
+<button type="button" id="division" onclick="calculation(this.id)">Division(/)</button>
+<br>
+<br>
+<p id="result"> </p>
+<script>
+    function calculation(id) {
+        let result;
+        let number1 = document.getElementById("number1").value;
+        number1 = parseInt(number1);
+        let number2 = document.getElementById("number2").value;
+        number2 = parseInt(number2);
+        if (id == "addition") {
+            result = number1 + number2;
+        } else if (id == "subtraction") {
+            result = number1 - number2;
+        } else if (id == "multiplication") {
+            result = number1 * number2;
+        } else if (id == "division") {
+            result = number1 / number2;
+        }
+        document.getElementById("result").innerHTML = "The result is: " + result;
+    }
+</script>
+</body>
+</html>
