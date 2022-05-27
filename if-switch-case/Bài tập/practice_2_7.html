@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-7</title>
+</head>
+<body>
+<!--ax2+by+c=0, a#0-->
+<script>
+    let a = parseFloat(prompt('Enter the a'));
+    let b = parseFloat(prompt('Enter the b'));
+    let c = parseFloat(prompt('Enter the c'));
+    let abc = b*b - 4*a*c;
+    let x;
+    let y;
+    if (isNaN(a) || isNaN(b) || isNaN(c) || a==0) {
+        alert('Pls input a and b and c again by number');
+    } else if (abc<0) {
+        alert('Equation has no solutions');
+    } else if (abc==0) {
+        x=y= -b/2*a;
+        alert('x and y = ' + x);
+    } else {
+        x= (-b + Math.sqrt(abc)) / (2*a);
+        y= (-b - Math.sqrt(abc)) / (2*a);
+        alert('x= ' + x +' , '+'y= ' +y);
+    }
+</script>
+</body>
+</html>

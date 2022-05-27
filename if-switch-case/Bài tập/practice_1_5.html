@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1-5</title>
+</head>
+<body>
+<script>
+    // checkScore = (score + haftTermScore + finalTermScore) /3
+    // checkScore > 7: Good
+    // 4<= checkScore <=7: Average
+    // 0<= checkScore <4: Below averge
+    let score = parseFloat(prompt('Enter the score'));
+    let haftTermScore = parseFloat(prompt('Enter the Haft term score'));
+    let finalTermScore = parseFloat(prompt('Enter the final term score'));
+    let checkScore = (score + haftTermScore + finalTermScore) / 3;
+    if (isNaN(score) || isNaN(haftTermScore) || isNaN(finalTermScore)) {
+        alert('Pls input score again');
+    } else if(checkScore>7) {
+        alert('Good');
+    } else if (checkScore>=4) {
+        alert('Average');
+    } else alert('Below average');
+</script>
+</body>
+</html>

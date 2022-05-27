@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1-7</title>
+</head>
+<body>
+<!--Time of using phone in Vietnam> 0 minute: 220vnd/minute-->
+<!--Time of using phone to foreign countries > 0 minute: 790vnd/minute-->
+<script>
+    let timeVietnam = parseFloat(prompt('Enter the minute of using phone in Vietnam'));
+    let timeForeign = parseFloat(prompt('Enter the minute of using phone call to foreign countries'));
+    let fare = timeVietnam*220 + timeForeign*790;
+    if (isNaN(timeVietnam) || isNaN(timeForeign)) {
+        alert('Pls input time of using phone by number');
+    } else if (timeVietnam<0 || timeForeign<0) {
+            alert('Pls input time of using phone again');
+        } else alert('Fare of using phone is ' + fare + 'vnd');
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-5</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt('Enter the right triangle first small side'));
+    let b = parseFloat(prompt('Enter the right triangle second small side'));
+    let area = a*b/2;
+    if (isNaN(a) || a<=0 || isNaN(b) || b<=0) {
+        alert('Input the right triangle again');
+    } else alert('The right triangle area is ' + area);
+</script>
+</body>
+</html>

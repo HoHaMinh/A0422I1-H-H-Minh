@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        .a {
+            color: blue; width: 1cm;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th colspan="4"><input type="text" disabled id="result" style="color: blue; text-align: right"; width="12cm;"> </th>
+    </tr>
+    <tr>
+        <td><button type="button" value="1" onclick="display('1')" class="a">1</button></td>
+        <td><button type="button" value="2" onclick="display('2')" class="a">2</button></td>
+        <td><button type="button" value="3" onclick="display('3')" class="a">3</button></td>
+        <td><button type="button" value="+" onclick="display('+')" class="a">+</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" value="4" onclick="display('4')" class="a">4</button></td>
+        <td><button type="button" value="5" onclick="display('5')" class="a">5</button></td>
+        <td><button type="button" value="6" onclick="display('6')" class="a">6</button></td>
+        <td><button type="button" value="-" onclick="display('-')" class="a">-</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" value="7" onclick="display('7')" class="a">7</button></td>
+        <td><button type="button" value="8" onclick="display('8')" class="a">8</button></td>
+        <td><button type="button" value="9" onclick="display('9')" class="a">*</button></td>
+        <td><button type="button" value="*" onclick="display('*')" class="a">x</button></td>
+    </tr>
+    <tr>
+        <td><button type="reset" value="reset" onclick="reset()" class="a">C</button></td>
+        <td><button type="button" value="0" onclick="display('0')" class="a">0</button></td>
+        <td><button type="button" value="=" onclick="calculate()" class="a">=</button></td>
+        <td><button type="button" value="/" onclick="display('/')" class="a">/</button></td>
+    </tr>
+</table>
+<script>
+    function reset() {
+        document.getElementById('result').value = ' ';
+    }
+    function display(value) {
+        document.getElementById('result').value += value;
+    }
+    function calculate() {
+        let express = document.getElementById('result').value;
+        let result = eval(express);
+        document.getElementById('result').value = result;
+    }
+</script>
+
+</form>
+</body>
+</html>

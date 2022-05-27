@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-4</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt('Enter the rectangle small edge'));
+    let b = parseFloat(prompt('Enter the rectangle big edge'));
+    let area = a*b;
+    if (isNaN(a) || a<=0 || isNaN(b) || b<=0 || a>=b) {
+        alert('Input the rectangle edge again');
+    } else alert('The square area is ' + area);
+</script>
+</body>
+</html>

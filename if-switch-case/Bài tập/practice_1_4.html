@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1-4</title>
+</head>
+<body>
+<script>
+    let number1 = prompt('Enter number 1');
+    let checkNumber1 = parseFloat(number1) - parseInt(number1);
+    let number2 = prompt('Enter number 2');
+    let checkNumber2 = parseFloat(number2) - parseInt(number2);
+    let number3 = prompt('Enter number 3');
+    let checkNumber3 = parseFloat(number3) - parseInt(number3);
+    let compare1 = number1 - number2;
+    let compare2 = number1 - number3;
+    if (isNaN(number1) || isNaN(number2) || isNaN(number3)) {
+        alert("Input is not number");
+    } else if (checkNumber1!=0 || checkNumber2!=0 || checkNumber3!=0) {
+        alert('Input number is not integer');
+           } else if (compare1==0) {
+                if (compare2>0){
+                alert('Number 1 and Number 2 are biggest numbers');
+                } else if (compare2<=0) {
+                    if (compare2==0) {
+                        alert('3 number are equal');
+                    } else alert('Number 3 is biggest number');
+                }
+           } else if (compare1>0) {
+                if (compare2>0) {
+                    alert('Number 1 is biggest number');
+                } else if(compare2==0) {
+                    alert('Number 1 and number 3 are biggest numbers');
+                } else alert('Number 3 is biggest number');
+           } else if (compare2>=0) {
+                alert('Number 2 is biggest number');
+           } else if (number2==number3) {
+                alert('Number 2 and Number 3 are biggest numbers');
+           } else if (number2>number3) {
+                alert('Number 2 is biggest number');
+           } else alert('Number 3 is biggest number');
+</script>
+</body>
+</html>

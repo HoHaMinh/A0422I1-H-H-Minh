@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-6</title>
+</head>
+<body>
+<!--ax + b = 0-->
+<script>
+    let a = parseFloat(prompt('Enter the a'));
+    let b = parseFloat(prompt('Enter the b'));
+    let x = -b/a;
+    if (isNaN(a) || isNaN(b)) {
+        alert('Pls input a and b again by number');
+    } else if (a==0 && b==0) {
+        alert('Equation has infinitely many solutions');
+    } else if (a==0 && b!=0) {
+        alert('Equation has no solutions');
+    } else alert('x= ' + x);
+</script>
+</body>
+</html>
