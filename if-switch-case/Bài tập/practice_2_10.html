@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-10</title>
+</head>
+<body>
+<script>
+    let kWh = parseFloat(prompt('Enter kWh'));
+    let checkKWh = parseFloat(kWh) - parseInt(kWh);
+    let fee;
+    if (isNaN(kWh)) {
+        alert('Pls input kWh again by number');
+    } else if (checkKWh!=0 || kWh<0) {
+        alert('kWh is wrong');
+    } else if (kWh<=50) {
+        fee = kWh * 1678;
+        alert('Fee of using electric is ' + fee +'VND');
+    } else if (kWh<=100) {
+        fee = kWh * 1734;
+        alert('Fee of using electric is ' + fee +'VND');
+    } else if (kWh<=200) {
+        fee = kWh * 2014;
+        alert('Fee of using electric is ' + fee +'VND');
+    } else {
+        fee = kWh * 2536;
+        alert('Fee of using electric is ' + fee +'VND');
+    }
+</script>
+</body>
+</html>

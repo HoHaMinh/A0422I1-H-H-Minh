@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-8</title>
+</head>
+<body>
+<script>
+    let age = parseFloat(prompt('Enter your age'));
+    let checkage = parseInt(age) - parseFloat(age);
+    if (isNaN(age)) {
+        alert('Pls enter your age again by number');
+    } else if (checkage!=0) {
+        alert('Pls enter your age by integer number');
+    } else if (age>0) {
+        if (age<120) {
+            alert('Input age is right');
+        } else alert('Input age is wrong');
+    } else alert('Input age is wrong');
+</script>
+
+</body>
+</html>

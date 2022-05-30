@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-9</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt('Enter number a'));
+    let b = parseFloat(prompt('Enter number b'));
+    let c = parseFloat(prompt('Enter number c'));
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert('Pls input a b c again by number')
+    } else if (a<=0 || b<=0 || c<=0) {
+        alert('Input number is wrong');
+    } else if (a+b>c) {
+        if (b+c>a) {
+            if (a+c>b) {
+                alert('a b c are edges of a triangle');
+            } else alert('a b c are not edges of triangle');
+        } else alert('a b c are not edges of triangle');
+    } else alert('a b c are not edges of triangle');
+</script>
+</body>
+</html>

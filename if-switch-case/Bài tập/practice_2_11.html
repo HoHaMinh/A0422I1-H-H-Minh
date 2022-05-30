@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-11</title>
+</head>
+<body>
+<script>
+    let salary = parseFloat(prompt('Enter your salary'));
+    let dependent = parseFloat(prompt('Enter your dependent in your family'));
+    let checkDependent = parseFloat(dependent) - parseInt(dependent);
+    let tax;
+    let salaryReduce;
+    if (isNaN(dependent) || checkDependent!=0 || dependent<0) {
+        alert('Pls input denpendent again');
+    } else if (dependent==0) {
+        salaryReduce = 11000000;
+    } else if (dependent==1) {
+        salaryReduce = 15400000;
+    } else if (dependent==2) {
+        salaryReduce = 19800000;
+    } else if (dependent ==3) {
+        salaryReduce = 24200000;
+    } else {
+        salaryReduce = 28600000;
+    }
+    let salaryForTax = salary-salaryReduce;
+    if (isNaN(salary) || salaryForTax <0) {
+        alert('Pls input salary and dependent again');
+    } else if (salaryForTax <=5000000) {
+            tax = salaryForTax*0.05;
+        } else if (salaryForTax<=10000000) {
+            tax = salaryForTax*0.1-250000;
+        } else if (salaryForTax<= 18000000) {
+            tax = salaryForTax*0.15-750000;
+        } else if (salaryForTax<=32000000) {
+            tax = salaryForTax*0.2-1650000;
+        } else {
+            tax = salaryForTax*0.25-3250000;
+        }
+    alert('Tax is ' + tax + 'VND');
+</script>
+</body>
+</html>

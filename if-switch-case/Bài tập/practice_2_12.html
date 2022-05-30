@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-12</title>
+</head>
+<body>
+<script>
+    let moneyLoan = parseFloat(prompt('Enter the original money loan'));
+    let interestRate = parseFloat(prompt('Enter the interest rate'));
+    let loanInterest;
+    if (isNaN(moneyLoan) || isNaN(interestRate) || moneyLoan<0 || interestRate<0) {
+        alert('input is wrong');
+    } else {
+        for (let month = 1; month <= 12; month++) {
+            loanInterest = moneyLoan * interestRate / 100;
+            moneyLoan += loanInterest;
+            console.log(loanInterest);
+        }
+    }
+</script>
+</body>
+</html>
