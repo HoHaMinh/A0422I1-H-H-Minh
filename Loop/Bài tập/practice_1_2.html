@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1-2</title>
+</head>
+<body>
+<script>
+    let celcius;
+    do {
+        celcius = parseFloat(prompt('Enter the celcius'));
+        if (celcius>100) {
+            alert('Pls lower the temperature');
+        }
+        if (celcius<20) {
+            alert('Pls raise the temperature')
+        }
+    } while (isNaN(celcius)==false);
+</script>
+</body>
+</html>

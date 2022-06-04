@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 1-8</title>
+</head>
+<body>
+<form>
+    <button type="button" id="play" onclick="click1();">Chơi</button>
+</form>
+<script>
+    function click1() {
+        let num1;
+        let num2;
+        let randomNumber;
+        let guessNumber;
+        do {
+            num1 = parseFloat(prompt('Enter the first number of the range which you want, number 1 >=0'));
+            num2 = parseFloat(prompt('Enter the second number of the range which you want, number 2 > number 1'));
+            randomNumber = Math.floor(Math.random() * (num2 - num1)) + num1;
+            for (let i = 1; i <= 3; i++) {
+                guessNumber = parseFloat(prompt('Enter your guess number'));
+                if (guessNumber == randomNumber) {
+                    document.getElementById('play').innerText = "Congratulation!";
+                    break;
+                } else if (guessNumber > randomNumber) {
+                    alert('Guess number is higher than random number');
+                } else {
+                    alert('Guess number is lower than random number');
+                }
+            }
+        } while (guessNumber !== randomNumber);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2-2</title>
+</head>
+<body>
+<script>
+    let i=1;
+    let result=1
+    let number=parseFloat(prompt('Enter your number'));
+    let checkNumber = parseInt(number) - number;
+    if (isNaN(number) || checkNumber!=0 || number<=0) {
+        alert('Pls input number again')
+    } else {
+        while (i <= number) {
+            result = result * i;
+            i++;
+        } alert('The result is ' + result);
+    }
+</script>
+</body>
+</html>

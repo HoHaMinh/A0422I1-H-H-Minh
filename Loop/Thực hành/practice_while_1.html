@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập while-1</title>
+</head>
+<body>
+<script>
+    let total = 0;
+    let number = parseFloat(prompt('Enter the number'));
+    if (isNaN(number)) {
+        alert('Enter the number again');
+    } else
+    while (number != -1) {
+        console.log('Number is '+ number);
+        total += number;
+        console.log('Total is ' + total);
+        number = parseFloat(prompt('Enter the number'));
+        if (isNaN(number)) {break}
+        }
+</script>
+</body>
+</html>

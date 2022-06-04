@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp for-2</title>
+</head>
+<body>
+<script>
+    let number = parseFloat(prompt('Enter the number'));
+    let checkNumber = number - parseInt(number);
+    let total = 0;
+    if (isNaN(number) || number<0 || checkNumber!=0) {
+        alert('Pls input number again')
+    } else {
+        for (let i = 0; i <= number; i++) {
+            total += i;
+        }
+        alert('Total is ' + total);
+    }
+</script>
+</body>
+</html>
