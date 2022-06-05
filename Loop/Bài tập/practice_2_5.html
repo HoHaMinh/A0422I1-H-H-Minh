@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2.5</title>
+</head>
+<body>
+<script>
+    let loanMoney = parseFloat(prompt('Pls enter the original loan money'));
+    let interest = parseFloat(prompt('Pls enter the interest'));
+    let month = parseInt(prompt('Pls enter the month of loan'));
+    let interestLoan=0;
+    for (let i=0;i<=month;i++) {
+        interestLoan=loanMoney*interest/100;
+        interestLoan+=interestLoan;
+        loanMoney=loanMoney+interestLoan;
+    } document.write('Interest loan of month '+month+' is '+interestLoan);
+</script>
+
+</body>
+</html>
