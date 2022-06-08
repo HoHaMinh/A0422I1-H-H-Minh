@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập thêm 2</title>
+</head>
+<body>
+<script>
+    let month=parseFloat(prompt('Pls enter the month'));
+    let checkMonth = parseInt(month)-month;
+    let year=parseFloat(prompt('Pls enter the year'));
+    let checkYear = parseInt(year)-year;
+    let isLeapYear = false;
+    if (isNaN(month) || isNaN(year) || month<1 || month>12 || year<1 || checkMonth!=0 || checkYear!=0) {
+        alert('Pls input the month and year again');
+    } else {
+        switch (month) {
+            case (1):
+            case (3):
+            case (5):
+            case (7):
+            case (8):
+            case (10):
+            case (12):
+                alert('The days of this month is 31');
+                break;
+            case (4):
+            case (6):
+            case (9):
+            case (11):
+                alert('The days of this month is 30');
+                break
+            case (2):
+                if (year % 4 == 0) {
+                    if (year % 100 == 0) {
+                        if (year % 400 == 0) {
+                            isLeapYear = true;
+                        }
+                    } else {
+                        isLeapYear = true;
+                    }
+                }
+                if (isLeapYear) {
+                    alert('The days of this month is 29')
+                } else {
+                    alert('The days of this month is 28')
+                }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+<script>
+    let countPrimeNumbers=0;
+    for (let i=2; countPrimeNumbers<20; i++) {
+        let j=2;
+        while (i%j!=0) {
+            j++;
+        } if (i==j) {
+            document.write(i + '<br>');
+            countPrimeNumbers++;
+        }
+    }
+</script>
+</body>
+</html>

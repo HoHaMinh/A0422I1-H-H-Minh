@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập thêm 6</title>
+</head>
+<body>
+<SCRIPT>
+    let n = parseFloat(prompt('Pls enter n'));
+    let check = parseInt(n)-n;
+    let factorial=1;
+    if (isNaN(n) || check!=0 || n<=0) {
+        alert('Pls enter n again');
+    } else if (n%2==0) {
+        for (let i=2; i<=n; i+=2) {
+            factorial*=i;
+        }
+    } else {
+        for (let j=1; j<=n; j+=2) {
+            factorial*=j;
+        }
+    } document.write('Factorial is '+factorial);
+</SCRIPT>
+</body>
+</html>

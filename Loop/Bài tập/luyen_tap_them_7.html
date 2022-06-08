@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập thêm 7</title>
+</head>
+<body>
+<script>
+    let number=prompt('Pls enter the number');
+    let check = parseInt(number)-parseFloat(number);
+    let total=0;
+    let volume=1;
+    if (isNaN(number) || check!=0 || number<0) {
+        alert('Pls input number again')
+    } else {
+        let lenght = number.length;
+        for (let i=0; i<lenght;i++) {
+        total+= parseInt(number.charAt(i));
+        volume*= parseInt(number.charAt(i));
+        }
+    } document.write(total+'   ' +volume);
+</script>
+</body>
+</html>
