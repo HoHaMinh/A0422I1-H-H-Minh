@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<h2>Từ điển</h2>
+<form>
+    <input type="text" id="english">
+    <input type="button" value="Translate" onclick="trans()">
+    <p>Pls input words by english with lower case</p>
+    <p id="result"></p>
+ <script>
+     let eng = ['hello','house','family','school'];
+     let viet = ['Xin chào','Ngôi nhà','Gia đình','Trường học'];
+     function trans() {
+         let a = document.getElementById('english').value;
+         let index = eng.indexOf(a);
+         let b = document.getElementById('result');
+         b.innerHTML=viet[index];
+     }
+ </script>
+</form>
+</body>
+</html>

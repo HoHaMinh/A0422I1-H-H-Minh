@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số ký tự số trong mảng</title>
+</head>
+<body>
+<script>
+    let array = [ 'c', 's', '4', '2', '6', '1' ];
+    let count=0;
+    for (let i=0; i<array.length; i++) {
+        if (isNaN(array[i])==false) {
+            count+=1;
+        }
+    } document.write('The number in array is: ' + count);
+</script>
+</body>
+</html>

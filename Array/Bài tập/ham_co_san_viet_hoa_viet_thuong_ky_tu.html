@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chữ viết hoa thành viết thường và ngược lại</title>
+</head>
+<body>
+<script>
+    let string = prompt('Pls enter the string');
+    let change = string.toString().split('');
+    let upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let result = [];
+    for (let i=0; i<change.length; i++) {
+        if (upper.indexOf(change[i])!==-1) {
+            result.push(change[i].toLowerCase());
+        } else if (lower.indexOf(change[i])!==-1) {
+            result.push(change[i].toUpperCase());
+        } else { result.push(change[i]);
+        }
+    } document.write(result.join(''));
+</script>
+</body>
+</html>

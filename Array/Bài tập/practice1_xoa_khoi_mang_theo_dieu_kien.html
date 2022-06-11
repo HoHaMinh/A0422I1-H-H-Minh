@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm 1 số có thuộc mảng hay không và xóa số đó nếu thuộc mảng</title>
+</head>
+<body>
+<script>
+let integer = [1,3,15,4,12,7,19,20,5,15];
+let number = parseInt(prompt('Pls enter number'));
+let index = integer.indexOf(number);
+if (index==-1) {
+    document.write('Number is not in array' + '<br>');
+} else {
+for (let i=0; i<integer.length && index!=-1; i++) {
+        integer.splice(index, 1);
+        integer.push(0);
+        index = integer.indexOf(number);
+    } document.write('Number is in array' + '<br>')
+} document.write('New integer is: '+integer);
+</script>
+</body>
+</html>

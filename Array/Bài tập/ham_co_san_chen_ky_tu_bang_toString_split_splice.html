@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng hàm toString Split Splice</title>
+</head>
+<body>
+<script>
+    let number=[prompt('Pls enter the number')];
+    let change = number.toString().split("")
+    for (let i=0; i<change.length; i++) {
+        if (parseInt(change[i])%2==0) {
+            if (parseInt(change[i+1])%2==0) {
+                change.splice(i+1,0,'-');
+            }
+        }
+    } number=change.join('&nbsp;');
+    document.write(number);
+</script>
+</body>
+</html>

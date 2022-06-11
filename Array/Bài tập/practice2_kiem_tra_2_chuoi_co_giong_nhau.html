@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra 2 chuỗi có giống nhau không</title>
+</head>
+<body>
+<script>
+    let a = prompt('Pls enter string 1');
+    let b = prompt('Pls enter string 2');
+    let c = true;
+    let changeA=a.split('');
+    let changeB=b.split('');
+    if (changeA.length!=changeB.length) {
+        document.write('a and b is different')
+    } else {
+        for (let i=0; i<changeA.length;i++) {
+            if (changeA[i]!==changeB[i]) {
+                document.write('a and b is different')
+                c = false;
+                break;
+            }
+        } if (c==true) {
+            document.write('a is same as b')
+        }
+    }
+</script>
+</body>
+</html>
