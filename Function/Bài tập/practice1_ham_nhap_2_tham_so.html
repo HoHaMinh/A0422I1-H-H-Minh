@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm nhập 2 tham số</title>
+</head>
+<body>
+<script>
+    let num1 = parseFloat(prompt('Pls enter num1'));
+    let num2 = parseFloat(prompt('Pls enter num2'));
+    let total=0;
+    compare(num1,num2);
+    function compare(num1,num2) {
+        if (num1>num2) {
+            alert('Number 1 is greater than number 2');
+        } else {
+            total = total+num1+num2;
+            alert('Total is '+total);
+        }
+    }
+</script>
+</body>
+</html>

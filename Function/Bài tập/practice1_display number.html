@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thể hiện số sau khi tăng lên 1</title>
+</head>
+<body>
+<input type="number" onclick="displayNumber(this.value)" >
+<p id="result"></p>
+<SCRIPT>
+    function displayNumber(num) {
+        num = parseFloat(num);
+        num++;
+        document.getElementById('result').innerHTML= num;
+    }
+</SCRIPT>
+</body>
+</html>

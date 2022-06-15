@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm tìm kiếm ngôi sao</title>
+</head>
+<body>
+<input type="text" id="star" oninput="findStar(this.value)">
+<p id="result"></p>
+<script>
+    let star = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+    let constellation = ['Ursa Minor','Tarurus','Cygnus','Lyra','Aquila','Ursa Major','Leo'];
+    let consequence = document.getElementById('result');
+    function findStar(inputStar) {
+        let index = star.indexOf(inputStar);
+        if (index==-1) {
+            consequence.innerText='Your input star is wrong'
+        } else {
+            consequence.innerText='Your input star is in ' + constellation[index] + ' constellation';
+        }
+    }
+</script>
+</body>
+</html>

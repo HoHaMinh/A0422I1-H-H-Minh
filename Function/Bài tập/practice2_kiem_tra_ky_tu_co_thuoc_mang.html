@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự có thuộc mảng</title>
+</head>
+<body>
+<script>
+    let array = ['a','b','c','a','b'];
+    let character = prompt('Pls enter your character');
+    findCharacter(array,character);
+    function findCharacter(array,character) {
+        let index = array.indexOf(character);
+        if (index==-1) {
+            alert('Input character is not in array');
+        } else {
+            let count =0;
+            for (let i=0; i<array.length; i++) {
+                if (character===array[i]) {
+                    count+=1;
+                }
+            } alert('Input character is in array and display ' + count + ' times');
+        }
+
+    }
+</script>
+</body>
+</html>

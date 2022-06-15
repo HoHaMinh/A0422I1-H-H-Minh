@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<script>
+    let array =[];
+    for (let i=0; i<3;i++) {
+        let elementOfArray = parseInt(prompt('Pls enter the element of array'))
+        array.push(elementOfArray);
+    }
+    reverseArray(array);
+    function reverseArray(array) {
+        array.reverse();
+        document.write(array);
+    }
+</script>
+</body>
+</html>

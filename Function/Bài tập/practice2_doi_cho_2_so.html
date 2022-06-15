@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ 2 số nguyên</title>
+</head>
+<body>
+<SCRIPT>
+    let num1 = parseInt(prompt('Pls enter number 1'));
+    let num2 = parseInt(prompt('Pls enter number 2'));
+    swapNumber(num1,num2);
+    function swapNumber(num1,num2) {
+        let temp=num1;
+        num1=num2;
+        num2=temp;
+        alert('Number 1 is '+num1 + '; Number 2 is '+num2);
+    }
+</SCRIPT>
+</body>
+</html>

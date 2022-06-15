@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích, chu vi hình tròn</title>
+</head>
+<body>
+<script>
+    let radius = parseFloat(prompt('Pls enter the radius'));
+    if (radius<=0 || isNaN(radius)) {
+        alert('Pls enter the radius again')
+    } else {
+        calculateAreaCircle(radius);
+        calculatePerimeterCircle(radius);
+    }
+    function calculateAreaCircle(radius) {
+        let areaCircle = radius*radius*3.14;
+        alert('The area of circle is '+areaCircle)
+    }
+    function calculatePerimeterCircle() {
+        let perimeterCircle = radius*2*3.14;
+        alert('The perimeter of circle is ' + perimeterCircle);
+    }
+</script>
+</body>
+</html>

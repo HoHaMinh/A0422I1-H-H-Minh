@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+    let number = prompt('Pls enter your number');
+    checkPositiveInteger(number);
+    function checkPositiveInteger(number) {
+        if (isNaN(number) || (parseInt(number) - parseFloat(number))!=0 || number<=0) {
+            alert('Input number is not positive integer')
+        } else {
+            alert('Input number is a positive integer')
+        }
+    }
+</script>
+</body>
+</html>
