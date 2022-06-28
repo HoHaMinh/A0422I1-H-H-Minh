@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng class date</title>
+</head>
+<body>
+<SCRIPT>
+    class MyDate {
+        constructor(day,month,year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        };
+        getDay () {
+            return this.day
+        };
+        getMonth () {
+            return this.month
+        };
+        getYear () {
+            return this.year
+        };
+        setDate (day,month,year) {
+            this.day= day;
+            this.month= month;
+            this.year= year;
+        }
+        toString () {
+            return this.day + '/' + this.month + '/' + this.year;
+        }
+    };
+    let date = new MyDate(2,2,2007);
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    alert(day + '/' + month + '/' + year);
+    date.setDate(10,10,2019);
+    day = date.getDay();
+    month = date.getMonth();
+    year = date.getYear();
+    document.write(date.toString());
+</SCRIPT>
+</body>
+</html>

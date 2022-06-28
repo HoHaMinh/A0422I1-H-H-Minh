@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng hoạt động của đèn pin</title>
+</head>
+<body>
+<script>
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
+        }
+        getEnergy () {
+            return this.energy;
+        }
+        setEnergy () {
+            this.energy = energy;
+        }
+        decreaseEnergy () {
+            if (this.energy >0) {
+                this.energy--;
+            }
+        }
+    }
+    class FlashLamp {
+        constructor(status,battery) {
+            this.battery = battery;
+            this.status = status;
+        }
+        getBatteryInfo () {
+            return this.battery.getEnergy()
+        }
+        light () {
+            if (this.status) {
+                alert('Lighting');
+            } else {
+                alert('Not lighting');
+            }
+        }
+        turnOn () {
+            this.status=true;
+        }
+        turnOff () {
+            this.status=false;
+        }
+    }
+    let battery = new Battery(10);
+    let lamp = new FlashLamp(false,battery);
+    document.write('Battery info is ' + lamp.getBatteryInfo());
+    lamp.turnOn();
+    lamp.light();
+    lamp.turnOff();
+    lamp.light();
+</script>
+</body>
+</html>

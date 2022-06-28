@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp hình chữ nhật</title>
+</head>
+<body>
+<canvas id="display" width="1000" height="500"></canvas>
+<script>
+    class Retangle {
+        constructor(length,height) {
+            this.length = length;
+            this.height = height;
+        };
+        getArea () {
+            return this.length * this.height
+        };
+        getPerimeter () {
+            return this.length * this.height * 2
+        };
+        displayRetangle () {
+            let draw = document.getElementById('display').getContext('2d');
+            draw.strokeRect(10,10,this.length,this.height)
+        };
+        setLength (length) {
+            this.length = length;
+            return this.length;
+        };
+        setHeight (height) {
+            this.height = height;
+            return this.length;
+        };
+    }
+    let retangle = new Retangle(600,400);
+    retangle.displayRetangle();
+    retangle.setLength(800);
+    retangle.setHeight(600);
+    alert('Area of retangle is ' + retangle.getArea() + ' Perimeter of retangle is ' + retangle.getPerimeter());
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng class temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celcius) {
+            if (celcius<-273) {
+                this.celcius=null;
+            } else {
+                this.celcius = celcius;
+            }
+        };
+        convertFahrenheit () {
+            if (this.celcius == null) {
+                return 'Cannot convert because of wrong Input Celcius.'
+            } else {
+            let fahrenheit = this.celcius * 1.8 + 32;
+            return fahrenheit;
+            }
+        };
+        convertKenvin () {
+            if (this.celcius == null) {
+                return 'Cannot convert because of wrong Input Celcius.'
+            } else {
+            let kenvin = this.celcius + 273.15;
+            return kenvin;
+            }
+        };
+    } let celcius1 = new Temperature(4);
+    let fahrenheit = celcius1.convertFahrenheit();
+    let kenvin = celcius1.convertKenvin();
+    document.write('Fahrenheit is: ' + fahrenheit +  '<br>' + ' Kenvin is: ' + kenvin);
+</script>
+</body>
+</html>
