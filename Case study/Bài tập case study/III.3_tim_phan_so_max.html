@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm phân số lớn nhất</title>
+</head>
+<body>
+<script>
+    let numerators = [5,2,5];
+    let denominators = [6,3,4];
+    let max = numerators[0]/denominators[0]
+    let index = 0;
+    for (let i=0; i<numerators.length; i++) {
+            if (max < numerators[i]/denominators[i]) {
+                max =  numerators[i]/denominators[i];
+                index=i;
+        }
+    } document.write('Max is '+ numerators[index] + '/' + denominators[index] + '<br>' + 'Index is ' + index);
+</script>
+</body>
+</html>

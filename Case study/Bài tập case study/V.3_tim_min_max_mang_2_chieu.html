@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm min max của mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let array = [
+        [2,4,7,0],
+        [3,5,9,1]
+    ]
+    let min = array[0][0];
+    let max = array[0][0];
+    function findMinMax() {
+        for (let i=0; i<array.length;i++) {
+            for (let j=0; j<array[i].length;j++) {
+                if (array[i][j] < min) {
+                    min = array[i][j];
+                } if (array[i][j] > max) {
+                    max = array[i][j]
+                }
+            }
+        } return [max,min];
+    }
+    let result = findMinMax();
+    document.write('Max is ' + result[0] + ' Min is ' + result[1]);
+</script>
+</body>
+</html>

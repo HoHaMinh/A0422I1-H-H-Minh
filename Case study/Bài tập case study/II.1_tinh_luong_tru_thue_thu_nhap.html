@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lương trừ thuế thu nhập</title>
+</head>
+<body>
+<script>
+    let salary = parseFloat(prompt('Pls enter your salary'));
+    if (isNaN(salary) || salary<0) {
+        alert('Pls enter your salary again');
+    } else {
+       let netSalary = calculateNetSalary(salary);
+       document.write('Net salary is ' + netSalary);
+    }
+    function calculateNetSalary(number) {
+        let tax = 0;
+        if (number < 7000000) {
+            tax = number * 0.05;
+        } else if (number < 15000000) {
+            tax = number * 0.1;
+        } else {
+            tax = number * 0.2;
+        }
+        let netSalary = number - tax;
+        return netSalary;
+    }
+</script>
+</body>
+</html>

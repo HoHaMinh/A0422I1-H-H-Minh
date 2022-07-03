@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm nguyên âm trong bảng chữ cái</title>
+</head>
+<body>
+<script>
+    let vowelUpper = ['A','E','I','O','U'];
+    let vowelLower = ['a','e','i','o','u'];
+    let upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    let lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let character = prompt('Pls enter your character');
+    if (character.length!=1) {
+        alert('Pls just enter 1 character');
+    } else if (
+        upper.indexOf(character) ==-1 & lower.indexOf(character)==-1
+    ) {
+        alert('Your input is not English Alphabet');
+    } else if (vowelUpper.indexOf(character)!=-1 || vowelLower.indexOf(character)!=-1) {
+        alert('Your input character is vowel');
+    } else {
+        alert('Your input character is consonant')
+    }
+</script>
+</body>
+</html>

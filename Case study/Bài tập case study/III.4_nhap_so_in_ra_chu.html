@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập số in ra chữ</title>
+</head>
+<body>
+<script>
+    let number = [0,1,2,3,4,5,6,7,8,9];
+    let word = ['Không','Một','Hai','Ba','Bốn','Năm','Sáu','Bảy','Tám','Chín'];
+    let input = prompt('Pls enter your number');
+    let checkInput = parseFloat(input) - parseInt(input);
+    let result='';
+    if (isNaN(parseFloat(input)) || parseFloat(input)<0 || checkInput!=0) {
+        alert('Pls input again');
+    } else {
+        for (let i=0; i<input.length; i++) {
+            let index = number.indexOf(parseInt(input.charAt(i)));
+            result+= (word[index]) + '&nbsp;';
+        }
+    }document.write(result);
+</script>
+</body>
+</html>

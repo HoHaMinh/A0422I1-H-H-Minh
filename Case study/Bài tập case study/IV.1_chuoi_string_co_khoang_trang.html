@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi chuỗi string có khoảng trắng</title>
+</head>
+<body>
+<script>
+    let string = 'tRuong    TaN   HAI';
+    let newString = [];
+    // let finalString = '';
+    for (let i = 0; i < string.length; i++) {
+        string = string.split('  ').join(' ');
+    }
+    newString = string.toLowerCase().split(' ');
+    let max = newString[0].length;
+    let stringMax = newString[0];
+    function changeString() {
+        for (let i=0; i< newString.length; i++) {
+            newString[i] = newString[i][0].toUpperCase() + newString[i].toString().slice(1);
+        } return newString.join(' ');
+        // Cách khác, mất công viết rồi, để dành hồi tham khảo
+        // for (let j = 0; j < string.length; j++) {
+        //     if (string.search(/\s/) != -1) {
+        //         newString = string.slice(0, (string.search(/\s/)) + 1);
+        //         string = string.slice(string.search(/\s/) + 1);
+        //         newString = newString.charAt(0).toUpperCase() + newString.slice(1);
+        //         finalString += newString;
+        //     } else {
+        //         newString = string.charAt(0).toUpperCase() + string.slice(1);
+        //         finalString += newString;
+        //     }
+        // } return finalString;
+    } 
+    function findStringMax() {
+        for (let i=0; i<newString.length; i++) {
+            if (max<newString[i].length) {
+                max = newString[i].length
+                stringMax=newString[i];
+            }
+        }return stringMax;
+    }
+    console.log(changeString());
+    console.log(findStringMax());
+
+</script>
+</body>
+</html>

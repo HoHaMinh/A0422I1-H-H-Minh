@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo mảng mới theo điều kiện</title>
+</head>
+<body>
+<SCRIPT>
+    let a = [1,2,3];
+    let b = [];
+    let temp=0;
+    for (let i = 0; i<a.length; i++) {
+        b[i]=a[i] + temp;
+        temp+=a[i];
+    } document.write(b);
+</SCRIPT>
+</body>
+</html>

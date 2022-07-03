@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm ký tự giống nhau giữa 2 chuỗi</title>
+</head>
+<body>
+<script>
+    let string1 = 'aabcc';
+    let string2 = 'adcaa';
+    let newString1 = string1.split('');
+    let newString2 = string2.split('');
+    let stringChecking = [];
+    let count = 0
+
+    for (let i=0; i<newString1.length; i++) {
+        for (let j=0; j<newString2.length;j++) {
+                if (newString1[i]==newString2[j]) {
+                    stringChecking.push(newString1[i]);
+                    newString1.splice(i,1);
+                    newString2.splice(j,1);
+                }
+        }
+    }
+    console.log('2 arrays have ' + stringChecking.length + ' common characters: ' + stringChecking.toString());
+</script>
+</body>
+</html>

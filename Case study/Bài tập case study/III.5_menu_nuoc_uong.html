@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo menu thức uống</title>
+    <style>
+        h2 {
+            color: #0000fa; font-style: oblique;
+        }
+        button {
+            color: orangered; font-style: italic; font-size: large; line-height: 1.5;
+        }
+        .style1 {
+            color: #0000fa; font-weight: bold; font-size: larger;
+        }
+    </style>
+</head>
+<body>
+<h2>MENU OF DRINKS</h2>
+<button id="cafe" type="button" onclick="order(this.id)">1.CAFE </button> <br>
+<input type="number" min="0" value="0" id="ordercafe" style="display: none"> <br>
+<button id="orange" type="button" onclick="order(this.id)">2.ORANGE JUICE </button> <br>
+<input type="number" min="0" value="0" id="orderorange" style="display: none"> <br>
+<button id="carrot" type="button" onclick="order(this.id)">3.CARROT JUICE </button> <br>
+<input type="number" min="0" value="0" id="ordercarrot" style="display: none"> <br>
+<button id="tomato" type="button" onclick="order(this.id)">4.TOMATO JUICE </button> <br>
+<input type="number" min="0" value="0" id="ordertomato" style="display: none"> <br>
+<button id="water" type="button" onclick="order(this.id)">5.WATER </button> <br>
+<input type="number" min="0" value="0" id="orderwater" style="display: none"> <br>
+<button id="coconut" type="button" onclick="order(this.id)">6.COCONUT </button> <br>
+<input type="number" min="0" value="0" id="ordercoconut" style="display: none"> <br> <br>
+<button id="result" type="button" class="style1" onclick="calculaleTotal()" >FINISH ORDER </button>
+
+<SCRIPT>
+let drinks = ['cafe','orange','carrot', 'tomato', 'water', 'coconut'];
+let priceOfDrinks = [8000,10000,12000,10000,8000,15000];
+let total = 0;
+function order(choice) {
+    let index = drinks.indexOf(choice);
+    let price = priceOfDrinks[index];
+    document.getElementById('' + choice + '').innerHTML = 'Price of ' + choice + ' is ' + price + '<br>' + 'How much do you want?';
+    let resultOrder = document.getElementById(''+'order' + choice + '');
+    resultOrder.style.display= 'block';
+    return resultOrder.value;
+}
+function calculaleTotal() {
+    for (let i=0; i<6; i++) {
+        total += (order(drinks[i]) * priceOfDrinks[i]);
+    } document.getElementById('result').innerHTML = 'Your payment is: ' + total + ' VND.'
+}
+
+</SCRIPT>
+</body>
+</html>

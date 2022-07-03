@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ tam giác cân đặc</title>
+</head>
+<body>
+<script>
+    for (let i=1; i<=5; i++) {
+        for (let j=1; j<=i+4; j++) {
+            if (j<(6-i)) {
+                document.write('&nbsp;&nbsp;');
+            } else {
+                document.write('*');
+            }
+        } document.write('<br>');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ hình chữ nhật rỗng</title>
+</head>
+<body>
+<SCRIPT>
+    for (let i=0; i<4;i++) {
+        document.write('*');
+        for (let j=0; j<5; j++) {
+            if (i==0 || i==3 || j==4) {
+                document.write('*');
+            } else {
+                document.write('&nbsp;&nbsp;');
+            }
+        } document.write('<br>');
+    }
+</SCRIPT>
+</body>
+</html>

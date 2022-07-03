@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nguyên tố trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let array = [
+        [2,4,7,0],
+        [3,5,9,1]
+    ]
+    let count =0;
+    function findPrime() {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j]>=2) {
+                let checkNumber = 2;
+                while (array[i][j] % checkNumber != 0) {
+                    checkNumber++;
+                }
+                if (array[i][j] == checkNumber) {
+                    document.write(array[i][j] + '<br>');
+                    count++;
+                }
+                }
+            }
+        } document.write('Count of Prime number is ' + count);
+    }
+    findPrime();
+
+
+</script>
+</body>
+</html>

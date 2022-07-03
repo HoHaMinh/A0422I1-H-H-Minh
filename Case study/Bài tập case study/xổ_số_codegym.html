@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xổ số</title>
+    <style>
+        div {
+            color: red;
+            font-size: larger;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h2>Xổ số code gym</h2>
+<input type="number" min="0" max="99" id="choice1.1" class="choice">
+<input type="number" min="0" max="99" id="choice1.2" class="choice">
+<input type="number" min="0" max="99" id="choice1.3" class="choice">
+<input type="number" min="0" max="99" id="choice1.4" class="choice">
+<input type="number" min="0" max="99" id="choice1.5" class="choice">
+<input type="number" min="0" max="99" id="choice1.6" class="choice">
+<br>
+<input type="number" min="0" max="99" id="choice2.1" class="choice">
+<input type="number" min="0" max="99" id="choice2.2" class="choice">
+<input type="number" min="0" max="99" id="choice2.3" class="choice">
+<input type="number" min="0" max="99" id="choice2.4" class="choice">
+<input type="number" min="0" max="99" id="choice2.5" class="choice">
+<input type="number" min="0" max="99" id="choice2.6" class="choice">
+<br>
+<input type="number" min="0" max="99" id="choice3.1" class="choice">
+<input type="number" min="0" max="99" id="choice3.2" class="choice">
+<input type="number" min="0" max="99" id="choice3.3" class="choice">
+<input type="number" min="0" max="99" id="choice3.4" class="choice">
+<input type="number" min="0" max="99" id="choice3.5" class="choice">
+<input type="number" min="0" max="99" id="choice3.6" class="choice">
+<br>
+<input type="number" min="0" max="99" id="choice4.1" class="choice">
+<input type="number" min="0" max="99" id="choice4.2" class="choice">
+<input type="number" min="0" max="99" id="choice4.3" class="choice">
+<input type="number" min="0" max="99" id="choice4.4" class="choice">
+<input type="number" min="0" max="99" id="choice4.5" class="choice">
+<input type="number" min="0" max="99" id="choice4.6" class="choice">
+<br>
+<button id="manual" onclick="check()">Complete manual choice</button>
+<button id="random" onclick="random()">Random choice</button>
+<button id="checkRandom" onclick="check()">Check random choice</button>
+<br>
+<div id="result"></div>
+<script>
+    let result = [Math.floor(Math.random()*99),Math.floor(Math.random()*99),Math.floor(Math.random()*99),Math.floor(Math.random()*99),Math.floor(Math.random()*99),Math.floor(Math.random()*99)]
+    let resultCompare='';
+    let input = document.getElementsByClassName('choice');
+    function check() {
+        let manualChoice =[
+            [input[0].value,input[1].value,input[2].value,input[3].value,input[4].value,input[5].value],
+            [input[6].value,input[7].value,input[8].value,input[9].value,input[10].value,input[11].value],
+            [input[12].value,input[13].value,input[14].value,input[15].value,input[16].value,input[17].value],
+            [input[18].value,input[19].value,input[20].value,input[21].value,input[22].value,input[23].value]
+        ]
+        for (let i=0; i<manualChoice.length;i++) {
+            for (let j = 0; j < manualChoice[i].length; j++) {
+                if (result[j] == parseInt(manualChoice[i][j])) {
+                    resultCompare += '=> You won first prize 10,000,000VND' + '<br>';
+                    break
+                } else if (
+                    result[0] != manualChoice [i][0] &&
+                    result[1] == manualChoice[i][1] &&
+                    result[2] == manualChoice[i][2] &&
+                    result[3] == manualChoice[i][3] &&
+                    result[4] == manualChoice[i][4] &&
+                    result[5] == manualChoice[i][5]
+                ) {
+                    resultCompare += '=> You won second prize 5,000,000VND' + '<br>';
+                    break;
+                } else if (
+                    result[0] != manualChoice [i][0] &&
+                    result[1] != manualChoice[i][1] &&
+                    result[2] != manualChoice[i][2] &&
+                    result[3] == manualChoice[i][3] &&
+                    result[4] == manualChoice[i][4] &&
+                    result[5] == manualChoice[i][5]
+                ) {
+                    resultCompare += '=> You won consolation prize 1,000,000' + '<br>';
+                    break
+                } else {
+                    resultCompare += '=> Good luck for next time' + '<br>';
+                    break;
+                }
+            }
+        }
+        return document.getElementById('result').innerHTML=resultCompare;
+    }
+    function random() {
+        for (let i=0; i<23; i+=6) {
+                if (input[i].value=='') {
+                    input[i].value=Math.floor(Math.random()*99);
+                    input[i+1].value=Math.floor(Math.random()*99);
+                    input[i+2].value=Math.floor(Math.random()*99);
+                    input[i+3].value=Math.floor(Math.random()*99);
+                    input[i+4].value=Math.floor(Math.random()*99);
+                    input[i+5].value=Math.floor(Math.random()*99);
+                }
+            }
+        }
+</script>
+</body>
+</html>

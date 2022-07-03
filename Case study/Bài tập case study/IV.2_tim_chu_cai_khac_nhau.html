@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm chữ cái khác nhau</title>
+</head>
+<body>
+<script>
+    let string = 'cabcabaad';
+    let newString = string.split('');
+    let stringChecking = [];
+    stringChecking.push(newString[0]);
+
+    for (let i=0; i<newString.length; i++) {
+        for (let j=0; j<stringChecking.length;j++) {
+            if (newString[i] != stringChecking[j]) {
+                if (stringChecking.indexOf(newString[i])==-1) {
+                    stringChecking.push(newString[i])
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+    }
+        console.log(('There are ' + stringChecking.length + ' different characters in string'));
+</script>
+</body>
+</html>
