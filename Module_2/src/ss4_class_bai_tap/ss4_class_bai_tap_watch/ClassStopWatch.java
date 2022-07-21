@@ -4,10 +4,8 @@ public class ClassStopWatch {
     public static void main(String[] args) {
         StopWatch time = new StopWatch();
         time.start();
-        time.getStartTime();
         sort(100000);
         time.stop();
-        time.getEndTime();
         System.out.println(time.getElapsedTime());
     }
 

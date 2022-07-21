@@ -25,7 +25,7 @@ public class Fan {
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
     public void setSpeed(int speed) {
@@ -33,7 +33,7 @@ public class Fan {
     }
 
     public boolean isTurnOn() {
-        return isTurnOn;
+        return this.isTurnOn;
     }
 
     public void setTurnOn(boolean turnOn) {
@@ -41,7 +41,7 @@ public class Fan {
     }
 
     public double getRadius() {
-        return radius;
+        return this.radius;
     }
 
     public void setRadius(double radius) {
@@ -49,7 +49,7 @@ public class Fan {
     }
 
     public String getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(String color) {
