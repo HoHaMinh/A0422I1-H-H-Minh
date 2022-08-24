@@ -13,12 +13,13 @@ public class Main extends Exception {
         double thirdSquare = Double.parseDouble(scanner.nextLine());
         while (true) {
             try {
-                if (checkSquare(firstSquare, secondSquare, thirdSquare)) ;
-                System.out.println("Input square is right");
-                break;
+                if (checkSquare(firstSquare, secondSquare, thirdSquare)) {
+                    System.out.println("Input square is right");
+                    break;
+                }
             } catch (IllegalTriangleException e) {
                 System.out.println(e.getMessage());
-                System.out.println("Pls enter square again: ");
+                System.out.println("Pls enter three square again: ");
                 firstSquare = Double.parseDouble(scanner.nextLine());
                 secondSquare = Double.parseDouble(scanner.nextLine());
                 thirdSquare = Double.parseDouble(scanner.nextLine());
@@ -30,8 +31,8 @@ public class Main extends Exception {
         if (a <= 0 || b <= 0 || c <= 0) {
             throw new IllegalTriangleException("Square can not less than or equal 0");
         }
-        if (a > b + c || b > a + c || c > a + b) {
-            throw new IllegalTriangleException("Sum of 2 square must be greater than the other square");
+        if (a > (b + c) || b > (a + c) || c > (a + b)) {
+            throw new IllegalTriangleException("Sum of 2 square must be greater than the remain square");
         }
         return true;
     }
