@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1</title>
+</head>
+<body>
+<script>
+    let input = parseFloat(prompt('Please enter your number'));
+    let checkInput = parseInt(input) - input;
+    let resultOfCheck = true;
+    let result=[];
+    do {
+        check();
+    } while (check())
+    if (!resultOfCheck) {
+        for (let i=1; i<=input;i++) {
+            if (input % i==0) {
+                result.push(i);
+            }
+        } document.write(result);
+    }
+    function check() {
+        if (isNaN(input) || checkInput!=0 || input<=0) {
+            alert('Your input is wrong. Please input again');
+            input = parseFloat(prompt('Please enter your number'));
+        } else {
+            resultOfCheck=false;
+        } return resultOfCheck
+    }
+</script>
+</body>
+</html>

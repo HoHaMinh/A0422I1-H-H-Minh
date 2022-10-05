@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+<script>
+    let array=[];
+    let answerOptions;
+    do {
+        answerOptions = prompt('Please choose: a - You want to input more numbers to array. Choose: b - You want to stop');
+        if (answerOptions=='a') {
+            array.push(prompt('Please enter your number'));
+        }
+    } while (answerOptions=='a')
+    function findIndex(array) {
+        let min = array[0];
+        let max = array[0];
+        for (let i=0; i<array.length;i++) {
+            if (array[i] > max) {
+                max=array[i];
+            } if (array[i] < min) {
+                min=array[i];
+            }
+        }
+        let indexOfMin = array.indexOf(min);
+        let indexOfMax = array.indexOf(max);
+        return [indexOfMin,indexOfMax];
+    }
+    let result = findIndex(array);
+    document.write('Index of Min is: ' + result[0] + '<br>' + 'Index of Max is: ' + result[1]);
+</script>
+</body>
+</html>

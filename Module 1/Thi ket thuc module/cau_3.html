@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+<script>
+    // let array = [2,3,4,1,4,6,2,6]
+    let array=[];
+    let n = prompt('Please enter n');
+    let answerOptions;
+    do {
+        answerOptions = prompt('Please choose: a - You want to input more numbers to array. Choose: b - You want to stop');
+        if (answerOptions=='a') {
+            array.push(prompt('Please enter your number'));
+        }
+    } while (answerOptions=='a')
+    let count =0
+    function findResult(array,n) {
+        array.sort(function (a, b) {return a-b});
+        for (let i=0; i<array.length;i++) {
+            if (array[i] == array[i+1]) {
+                array.splice(i,1);
+            } if (array[i]%n==0) {
+                count++;
+            }
+        } return count;
+    }
+    document.write('The result is: ' + findResult(array,n));
+</script>
+</body>
+</html>

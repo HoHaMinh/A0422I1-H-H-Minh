@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4</title>
+    <style>
+        th {
+            background-color: yellow;
+        }
+        td {
+            align-self: center;
+            text-align: center;
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<script>
+    class People {
+        constructor(index,fullname,age,address,telnumber) {
+            this.index = index;
+            this.fullname = fullname;
+            this.age = age;
+            this.address = address;
+            this.telnumber = telnumber;
+        }
+    }
+    let people1 = new People(1,'Nguyễn Lê Hoàng Oanh',20,'Quảng Nam','0923434564');
+    let people2 = new People(2,'Nguyễn Trần Cảnh',30,'Quảng Nam','0943246324');
+    let people3 = new People(3,'Hoàng Thanh Hùng',15,'Quảng Nam','0123451235');
+    let people4 = new People(4,'Trần Lệ Quyên',19,'Quảng Nam','0923093748');
+    let listOfPeople = [people1,people2,people3,people4]
+    sortName();
+    let table="<table border='1' width='800' cellspacing='0' cellpadding='3'>";
+    table= table +'<tr> <th>STT</th> <th>Họ và tên</th> <th>Tuổi</th> <th>Địa chỉ</th> <th>Số điện thoại</th> </tr>'
+    for (let i=0; i<listOfPeople.length; i++) {
+        table = table + '<tr>';
+        table = table + "<td>" + listOfPeople[i].index+ "</td>";
+        table = table + "<td>" + listOfPeople[i].fullname+ "</td>";
+        table = table + "<td>" + listOfPeople[i].age+ "</td>";
+        table = table + "<td>" + listOfPeople[i].address+ "</td>";
+        table = table + "<td>" + listOfPeople[i].telnumber+ "</td>";
+        table = table + '</tr>';
+    }
+    table = table + '</table>';
+    document.write(table);
+    function sortName () {
+        let listOfName=[]
+        for (let i=0; i<listOfPeople.length;i++) {
+            listOfName.push(listOfPeople[i].fullname);
+        } listOfName.sort()
+        let temp = new People();
+        for (let i=0; i<listOfName.length;i++) {
+            for (let j=0; j<listOfPeople.length;j++) {
+                if (listOfName[i] == listOfPeople[j].fullname) {
+                    temp = listOfPeople[i];
+                    listOfPeople[i] = listOfPeople[j];
+                    listOfPeople[j] = temp;
+                }
+            }
+            for (let i=0; i<listOfPeople.length;i++) {
+                listOfPeople[i].index=i+1;
+            }
+        } return listOfPeople;
+    }
+</script>
+</body>
+</html>
