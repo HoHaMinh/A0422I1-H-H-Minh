@@ -16,21 +16,30 @@ ul{
     font-size: 1.5em
 ;
 }
+.div_p {
+    width: 50%;
+    float: left;
+}
+.div_img {
+    width: 50%;
+    float: left;
+}
 h5 {
-    margin-bottom: 2px;
+    margin-bottom: 3em;
+    text-align: center;
 }
 .hide {
     display: none;
 }
 #baby {
-    color: #00bf00;
+    color: coral;
 }
 #birds {
-    color: black;
+    color: blue;
 }
 #cat {
-    color: #4A7CC2;
+    color: darkgray;
 }
 #bear {
-    color: #7d007d;
+    color: brown;
 }
