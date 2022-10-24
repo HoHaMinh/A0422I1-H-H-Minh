@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e58d5c3-1c61-4f1d-8639-bc70598a3faf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../case_study/~$-DN CaseStudy Furama Resort Module 3 Database.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/list_customer/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/list_customer/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss9_web/exercises/product_discount_caculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss9_web/exercises/product_discount_caculator/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss9_web/exercises/product_discount_caculator/.idea/runConfigurations.xml" beforeDir="false" />
     </list>
@@ -166,6 +169,7 @@
       <updated>1666357033062</updated>
       <workItem from="1666357035099" duration="1802000" />
       <workItem from="1666362953684" duration="3188000" />
+      <workItem from="1666613862160" duration="410000" />
     </task>
     <servers />
   </component>

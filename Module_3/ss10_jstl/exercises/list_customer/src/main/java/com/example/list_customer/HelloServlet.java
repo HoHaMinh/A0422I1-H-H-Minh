@@ -15,11 +15,11 @@ import java.util.List;
 public class HelloServlet extends HttpServlet {
     private static List<Customer> customerList = new ArrayList<>();
     static {
-        customerList.add(new Customer("Mai Văn Hoàn",new Date("20/08/1983"),"Hà Nội","webapp/views/1.png"));
-        customerList.add(new Customer("Nguyễn Văn Nam",new Date("21/08/1983"),"Bắc Giang","webapp/views/2.png"));
-        customerList.add(new Customer("Nguyễn Thái Hòa",new Date("22/08/1983"),"Nam Định","webapp/views/3.png"));
-        customerList.add(new Customer("Trần Đăng Khoa",new Date("17/08/1983"),"Hà Tây","webapp/views/4.png"));
-        customerList.add(new Customer("Nguyễn Đình Thi",new Date("19/08/1983"),"Hà Nội","webapp/views/5.png"));
+        customerList.add(new Customer("Mai Văn Hoàn",new Date("20/08/1983"),"Hà Nội","<img src='/views/1.png'>"));
+        customerList.add(new Customer("Nguyễn Văn Nam",new Date("21/08/1983"),"Bắc Giang","<img src='/views/2.png'>"));
+        customerList.add(new Customer("Nguyễn Thái Hòa",new Date("22/08/1983"),"Nam Định","<img src='/views/3.png'>"));
+        customerList.add(new Customer("Trần Đăng Khoa",new Date("17/08/1983"),"Hà Tây","<img src='/views/4.png'>"));
+        customerList.add(new Customer("Nguyễn Đình Thi",new Date("19/08/1983"),"Hà Nội","<img src='/views/5.png'>"));
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setAttribute("customerList", customerList);

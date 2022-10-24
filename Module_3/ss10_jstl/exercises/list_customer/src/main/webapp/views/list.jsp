@@ -20,7 +20,7 @@
             <td>${customer.getName()}</td>
             <td>${customer.getBirthday()}</td>
             <td>${customer.getAddress()}</td>
-            <td><img src="${customer.getImage()}"></td>
+            <td>${customer.getImage()}</td>
         </tr>
     </c:forEach>
 </table>
