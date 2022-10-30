@@ -23,14 +23,20 @@
     <li>
         <a href="#idDelete" id="deleteLink" onclick="show(this.id)" style="display: block">Delete product by id</a>
         <form method="get" action="/servlet" id="idDelete" style="display: none">
-            <p>Pls enter id of product need to edit</p>
+            <p>Pls enter id of product need to delete</p>
             <input type="number" name="id">
             <input type="text" name="action" value="delete" hidden>
             <input type="submit">
         </form>
     </li>
     <li>
-        <a href="/view/show.jsp" id="show">Show detailed of a product</a>
+        <a href="#idShow" id="show" onclick="show(this.id)" style="display: block">Show a product by id</a>
+        <form method="get" action="/servlet" id="idShow" style="display: none">
+            <p>Pls enter id of product need to show</p>
+            <input type="number" name="id">
+            <input type="text" name="action" value="show" hidden>
+            <input type="submit">
+        </form>
     </li>
     <li>
         <a href="#name" id="find" onclick="show(this.id)" style="display: block">Find product by name</a>
@@ -47,6 +53,8 @@
     const name = document.getElementById('name');
     const edit = document.getElementById('edit');
     const idEdit = document.getElementById('idEdit');
+    const showLink = document.getElementById('show');
+    const idShow = document.getElementById('idShow');
     const deleteLink = document.getElementById('deleteLink');
     const idDelete = document.getElementById('idDelete');
 
@@ -60,10 +68,13 @@
                 edit.style.display = "none";
                 idEdit.style.display="block";
                 break;
+            case "show":
+                showLink.style.display = "none";
+                idShow.style.display="block";
+                break;
             case "deleteLink":
                 deleteLink.style.display = "none";
                 idDelete.style.display="block";
-                break;
         }
     }
 </script>

@@ -11,15 +11,26 @@
 <head>
     <title>Display list of products</title>
     <style>
+        table {
+            border: 1px solid black;
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
         td {
-            width: 10em;
+            border: 1px solid black;
             text-align: center;
         }
     </style>
 </head>
 <body>
+<c:if test="${!empty mess}">
+    <h1 style="text-align: left; font-weight: bold; color: coral">${mess}</h1>
+</c:if>
 <h1 style="text-align: center">List of products</h1>
-<table border="1">
+<table width="100%">
     <tr>
         <th>ID</th>
         <th>Name</th>
