@@ -37,12 +37,28 @@ public class UserServlet extends HttpServlet {
                 case "findCountry":
                     findByCountry(request,response);
                     break;
+                case "findId":
+                    findById(request,response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
     }
 
+    private void findById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idToFind = Integer.parseInt(request.getParameter("idToFind"));
+        User usersById = userDAO.selectUser(idToFind);
+        if(usersById != null){
+            request.setAttribute("list", usersById);
+        }
+        else {
+            request.setAttribute("message", "Wrong Id");
+        }
+
+        request.setAttribute("id", idToFind);
+        request.getRequestDispatcher("user/findId.jsp").forward(request, response);
+    }
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -64,9 +80,17 @@ public class UserServlet extends HttpServlet {
                 case "findCountry":
                     showFindFormByCountry(request,response);
                     break;
+                case "findId":
+                    showFindFormById(request,response);
+                    break;    
                 case "sort":
-
                     listSortedUser(request,response);
+                    break;
+                case "permision":
+                    addUserPermision(request, response);
+                    break;
+                case "test-use-tran":
+                    testUseTran(request, response);
                     break;
                 default:
                     listUser(request, response);
@@ -76,6 +100,26 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void showFindFormById(HttpServletRequest request, HttpServletResponse response)
+        throws SQLException, ServletException, IOException {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("user/findId.jsp");
+            dispatcher.forward(request, response);
+        }
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+
+        User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
+
+        int[] permision = {1, 2, 4};
+
+        userDAO.addUserTransaction(user, permision);
+
+    }
+
+    private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
+
+        userDAO.insertUpdateUseTransaction();
+
+    }
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userDAO.selectAllUsers();

@@ -50,7 +50,12 @@
 </center>
 <center>
     <h2>
-        <a href="/user?action=find">Find By Country</a>
+        <a href="/user?action=findCountry">Find By Country</a>
+    </h2>
+</center>
+<center>
+    <h2>
+        <a href="/user?action=findId">Find By Id</a>
     </h2>
 </center>
 

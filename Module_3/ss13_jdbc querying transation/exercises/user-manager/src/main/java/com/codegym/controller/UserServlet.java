@@ -106,10 +106,7 @@ public class UserServlet extends HttpServlet {
     }
     private void showFindForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        String country = request.getParameter("country");
-        List<User> userList = userDAO.findByCountry(country);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/find.jsp");
-        request.setAttribute("user", userList);
         dispatcher.forward(request, response);
     }
     private void insertUser(HttpServletRequest request, HttpServletResponse response)

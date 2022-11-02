@@ -50,7 +50,7 @@
 </center>
 <center>
     <h2>
-        <a href="/user?action=sort">Find By Country</a>
+        <a href="/user?action=findCountry">Find By Country</a>
     </h2>
 </center>
 
