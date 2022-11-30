@@ -11,11 +11,11 @@ public class MedicalService implements IMedicalService{
     IMedicalRepository medicalRepository;
     @Override
     public MedicalDeclaration show() {
-        return null;
+        return medicalRepository.show();
     }
 
     @Override
-    public void addOrUpdate() {
-
+    public void addOrUpdate(MedicalDeclaration medicalDeclaration) {
+        medicalRepository.addOrUpdate(medicalDeclaration);
     }
 }

@@ -4,5 +4,5 @@ import exercise.medical_declaration.bean.MedicalDeclaration;
 
 public interface IMedicalService {
     public MedicalDeclaration show ();
-    public void addOrUpdate();
+    public void addOrUpdate(MedicalDeclaration medicalDeclaration);
 }

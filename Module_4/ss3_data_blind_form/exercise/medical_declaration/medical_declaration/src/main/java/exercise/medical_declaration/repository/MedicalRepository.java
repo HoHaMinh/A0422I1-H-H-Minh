@@ -5,13 +5,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MedicalRepository implements IMedicalRepository{
+    MedicalDeclaration medicalDeclarationRepo = new MedicalDeclaration();
     @Override
     public MedicalDeclaration show() {
-        return null;
+        return medicalDeclarationRepo;
     }
 
     @Override
-    public void addOrUpdate() {
-
+    public void addOrUpdate(MedicalDeclaration medicalDeclaration) {
+        medicalDeclarationRepo = medicalDeclaration;
     }
 }

@@ -1,5 +1,7 @@
 package exercise.medical_declaration.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +14,10 @@ public class MedicalDeclaration {
     private String transportVehicle;
     private String vehicleId;
     private String seatNo;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
     private Date endDate;
     private String visitedCity;
     private String cityOfAddress;
