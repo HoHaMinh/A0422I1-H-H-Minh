@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail blog</title>
+</head>
+<body>
+<h1>Detail blog</h1>
+<div th:object="${blog}">
+  <p>Name of blog:</p>
+  <p th:text="*{name}"/>
+  <p>
+    Content:
+  </p>
+  <p th:text="*{content}"/>
+</div>
+<a th:href="@{/}"><h3>Back to main menu</h3></a>
+</body>
+</html>

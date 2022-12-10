@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        table, th, td, tr {
+            border: solid 1px;
+            text-align: center;
+            align-content: center;
+        }
+
+        .C100 {
+            width: 100px;
+        }
+
+        .C300 {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<h5 th:text="${msg}"></h5>
+<a th:href="@{/showCreateForm}"><h3>Create new blog</h3></a>
+<h1>List of blogs</h1>
+<table>
+    <tr>
+        <th class="C100">
+            No
+        </th>
+        <th class="C300">
+            Name of blog
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            View
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    <tr th:each="blog,iter: ${list}">
+        <td th:text="${iter.count}" class="C100"></td>
+        <td th:text="${blog.name}" class="C300"></td>
+        <td><a th:href="@{/showEditForm/{id} (id=${blog.id})}">Edit</a></td>
+        <td><a th:href="@{/showBlog/{id} (id=${blog.id})}">View detail</a></td>
+        <td><a th:href="@{/delete/{id} (id=${blog.id})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
