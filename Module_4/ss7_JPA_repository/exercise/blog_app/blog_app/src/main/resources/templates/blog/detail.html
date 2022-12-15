@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail blog</title>
+    <style>
+        table, tr, td {
+            border: solid 1px;
+            align-content: center;
+            text-align: center;
+        }
+
+        .C20 {
+            width: 20%;
+        }
+
+        .C80 {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+<h1>Detail blog</h1>
+<table th:object="${blog}">
+    <tr>
+        <td class="C20">
+            Name of blog:
+        </td>
+        <Td th:text="*{name}" class="C80">
+        </Td>
+    </tr>
+    <tr>
+        <td class="C20">
+            Category:
+        </td>
+        <Td th:text="*{category.nameCategory}" class="C80">
+        </Td>
+    </tr>
+    <tr>
+        <td class="C20">
+            Date create:
+        </td>
+        <Td th:text="*{dateCreate}" class="C80">
+        </Td>
+    </tr>
+    <tr>
+        <td class="C20">
+            Content of blog:
+        </td>
+        <Td th:text="*{content}" class="C80">
+        </Td>
+    </tr>
+</table>
+<a th:href="@{/showListBlogs}"><h3>Back to list blogs menu</h3></a>
+</body>
+</html>
