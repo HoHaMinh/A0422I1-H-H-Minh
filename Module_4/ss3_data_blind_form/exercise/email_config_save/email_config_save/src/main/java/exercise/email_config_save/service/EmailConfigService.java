@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailConfigService implements IEmailConfigService{
     @Autowired
-    IEmailConfigRepository emailConfigRepository;
+    private IEmailConfigRepository emailConfigRepository;
 
     @Override
     public EmailConfig showAll() {

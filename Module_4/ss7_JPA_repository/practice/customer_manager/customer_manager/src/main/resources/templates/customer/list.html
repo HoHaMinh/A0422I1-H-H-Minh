@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List customer</title>
+</head>
+<body>
+<a href="/showCreateCustomerForm"><h3>Create new customer</h3></a>
+<form>
+    Search by first name:
+    <input name="search" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
+<br/>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Province</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="customer,iter : ${list}">
+        <tr>
+            <td th:text="${iter.count}"></td>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.province.name}"></td>
+            <td><a th:href="@{/showEditCustomerForm/{id} (id=${customer.id})}">Edit</a></td>
+            <td><a th:href="@{/deleteCustomer/{id} (id=${customer.id})}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div th:if="${list.totalPages > 0}"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/showListCustomer (page=${pageNumber},size=${list.size})}"
+       th:text="${pageNumber}" style="float: left; width: 10px"></a>
+</div>
+<a href="/"><h3>Back to list provinces</h3></a>
+</body>
+</html>

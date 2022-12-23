@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class MedicalController {
     @Autowired
-    IMedicalService medicalService;
+    private IMedicalService medicalService;
 
     @GetMapping("")
     public String showHome() {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of book</title>
+    <style>
+        table,tr,td,th {
+            border: solid 1px;
+            text-align: center;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+<h3 th:text="${msg}"></h3>
+<h1>List of book in library</h1>
+<A th:href="@{/showAddBookForm}"><h3>Add new book into library</h3></A>
+<table>
+   <tr>
+       <th>
+           No
+       </th>
+       <th>
+           Book's name
+       </th>
+       <th>
+           Quantity
+       </th>
+       <th>
+           Borrow
+       </th>
+   </tr>
+    <tr th:each="book,iter:${list}" th:object="${book}">
+        <td th:text="${iter.count}"></td>
+        <td th:text="*{bookName}"></td>
+        <td th:text="*{bookQuantity}"></td>
+        <td><a th:href="@{/borrowBook/{id}(id=*{bookId})}">Borrow this book</a></td>
+    </tr>
+</table>
+<div th:if="${list.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/ (page=${pageNumber},size=${list.size})}"
+       th:text="${pageNumber}" style="float: left; width: 10px"></a>
+</div>
+<br>
+<h1>Give book back</h1>
+<p>Pls input borrow's id</p>
+<form th:action="@{/giveBookBack}" method="get">
+    <input type="text" name="id">
+    <button type="submit">Confirm</button>
+</form>
+</body>
+</html>

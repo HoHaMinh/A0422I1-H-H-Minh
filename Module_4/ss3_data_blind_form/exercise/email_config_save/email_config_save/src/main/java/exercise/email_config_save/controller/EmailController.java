@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class EmailController {
 @Autowired
-    IEmailConfigService emailConfigService;
+    private IEmailConfigService emailConfigService;
 @GetMapping("")
     public ModelAndView showHome () {
     ModelAndView modelAndView = new ModelAndView("home","emailConfig", emailConfigService.showAll());

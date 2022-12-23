@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MedicalService implements IMedicalService{
     @Autowired
-    IMedicalRepository medicalRepository;
+    private IMedicalRepository medicalRepository;
     @Override
     public MedicalDeclaration show() {
         return medicalRepository.show();

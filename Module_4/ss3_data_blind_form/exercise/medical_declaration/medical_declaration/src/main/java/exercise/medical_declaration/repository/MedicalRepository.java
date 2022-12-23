@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MedicalRepository implements IMedicalRepository{
-    MedicalDeclaration medicalDeclarationRepo = new MedicalDeclaration();
+    private MedicalDeclaration medicalDeclarationRepo = new MedicalDeclaration();
     @Override
     public MedicalDeclaration show() {
         return medicalDeclarationRepo;

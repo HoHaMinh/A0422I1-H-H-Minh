@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class MusicRepository implements IMusicRepository{
+public class MusicRepository implements IMusicRepository {
     private List<Music> musicList = new ArrayList<>();
+
     @Override
     public List<Music> showAll() {
         return musicList;
