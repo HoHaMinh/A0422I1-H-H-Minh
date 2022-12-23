@@ -7,12 +7,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
-public class BookService implements IBookService{
+public class BookService implements IBookService {
     @Autowired
-    IBookRepository bookRepository;
+    private IBookRepository bookRepository;
+
     @Override
     public Page<Book> showAll(Pageable pageable) {
         return bookRepository.findAll(pageable);

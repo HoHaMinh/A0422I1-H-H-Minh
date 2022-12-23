@@ -7,11 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Book {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Integer bookId;
-   private String bookName;
-   private Integer bookQuantity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer bookId;
+    private String bookName;
+    private Integer bookQuantity;
 
     public Book() {
     }

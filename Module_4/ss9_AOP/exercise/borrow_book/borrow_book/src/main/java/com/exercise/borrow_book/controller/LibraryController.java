@@ -22,9 +22,9 @@ import java.util.stream.IntStream;
 @Controller
 public class LibraryController {
     @Autowired
-    IBookBorrowService bookBorrowService;
+    private IBookBorrowService bookBorrowService;
     @Autowired
-    IBookService bookService;
+    private IBookService bookService;
 
     @GetMapping("")
     public String showBookList(@RequestParam("page") Optional<Integer> page,

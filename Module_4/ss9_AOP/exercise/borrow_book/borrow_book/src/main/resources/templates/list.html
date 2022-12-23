@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>List of book</title>
     <style>
-        table,tr,td,th {
+        table, tr, td, th {
             border: solid 1px;
             text-align: center;
             align-content: center;
@@ -16,20 +16,20 @@
 <h1>List of book in library</h1>
 <A th:href="@{/showAddBookForm}"><h3>Add new book into library</h3></A>
 <table>
-   <tr>
-       <th>
-           No
-       </th>
-       <th>
-           Book's name
-       </th>
-       <th>
-           Quantity
-       </th>
-       <th>
-           Borrow
-       </th>
-   </tr>
+    <tr>
+        <th>
+            No
+        </th>
+        <th>
+            Book's name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Borrow
+        </th>
+    </tr>
     <tr th:each="book,iter:${list}" th:object="${book}">
         <td th:text="${iter.count}"></td>
         <td th:text="*{bookName}"></td>

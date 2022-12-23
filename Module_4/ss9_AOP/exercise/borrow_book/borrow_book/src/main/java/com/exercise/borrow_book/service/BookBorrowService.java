@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BookBorrowService implements IBookBorrowService{
+public class BookBorrowService implements IBookBorrowService {
     @Autowired
-    IBookBorrowRepository bookBorrowRepository;
+    private IBookBorrowRepository bookBorrowRepository;
+
     @Override
     public void borrow(BookBorrow bookBorrow) {
         bookBorrowRepository.save(bookBorrow);

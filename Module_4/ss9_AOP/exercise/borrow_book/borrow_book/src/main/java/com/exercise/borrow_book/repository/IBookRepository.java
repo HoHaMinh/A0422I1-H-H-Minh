@@ -8,11 +8,12 @@ import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
 
-public interface IBookRepository extends PagingAndSortingRepository<Book,Integer> {
+public interface IBookRepository extends PagingAndSortingRepository<Book, Integer> {
     @Transactional
     @Modifying
     @Query(value = "update Book b set b.bookQuantity = b.bookQuantity+1 where b.bookId=:id")
     void increaseBookQuantity(@Param("id") Integer id);
+
     @Transactional
     @Modifying
     @Query(value = "update Book b set b.bookQuantity = b.bookQuantity-1 where b.bookId=:id")
