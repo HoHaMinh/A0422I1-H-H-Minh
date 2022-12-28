@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+  <style>
+    table, tr, th, td {
+      border: solid 1px;
+      text-align: center;
+      align-content: center;
+    }
+  </style>
+</head>
+<body>
+<p>
+  <a href="/">Shop</a>
+</p>
+<h1>Payment successfully. Your order is:</h1>
+<table th:each="product: ${cart.products}">
+  <tr>
+    <th>Name of product</th>
+    <th>Quantity order</th>
+  </tr>
+  <tr>
+    <td th:text="${product.getKey().name}"></td>
+    <td th:text="${product.getValue()}"></td>
+  </tr>
+</table>
+</body>
+</html>

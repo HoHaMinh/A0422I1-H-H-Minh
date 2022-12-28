@@ -1,4 +1,4 @@
-package com.practice.shop_cart.model;
+package com.exercise.shopping_cart.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProduct;
+    private Long id;
     private String name;
     private double price;
     private String description;
@@ -24,11 +24,11 @@ public class Product {
     }
 
     public Long getId() {
-        return idProduct;
+        return id;
     }
 
-    public void setId(Long idProduct) {
-        this.idProduct = idProduct;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

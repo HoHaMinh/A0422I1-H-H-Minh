@@ -1,6 +1,7 @@
-package com.practice.shop_cart.service;
+package com.exercise.shopping_cart.service;
 
-import com.practice.shop_cart.model.Product;
+import com.exercise.shopping_cart.model.Product;
+import com.exercise.shopping_cart.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+    <style>
+        p {
+            border: solid 1px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 40%; height: 200px; float: left">
+  <img th:src="@{http://localhost:8080/{id}.jpg (id=${product.id})}" style="height: 90%; width: 100%; margin-top: 20px"><br>
+  <a th:href="@{/add/{id}/{action} (action='list',id=${product.id})}" style="height: 10%; width: 100%; border: solid 1px">Add To Cart</a>
+</div>
+<div style="width: 60%; height: 200px; float: left">
+  <p th:text="${product.name}" style="height: 20%"></p>
+  <p th:text="${product.description}" style="height: 80%"></p>
+</div>
+</body>
+</html>
