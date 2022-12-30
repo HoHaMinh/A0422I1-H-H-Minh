@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 @Component
 public class LibraryAspect {
     private Logger logger = Logger.getLogger(LibraryAspect.class.getName());
+    private static int count=0;
 
     @After("execution(* com.exercise.borrow_book.service.BookService.increaseBookQuantity(*))")
     public void getLogAfterIncrease(JoinPoint joinPoint) throws Throwable {
@@ -24,9 +25,10 @@ public class LibraryAspect {
         logger.info("After: End call " + methodName);
     }
 
-    @After("execution(* com.exercise.borrow_book.controller.LibraryController.*(..))")
+    @After("execution(* com.exercise.borrow_book.controller.LibraryController.showBookList(*,*,*))")
     public void getLogAfter(JoinPoint joinPoint) throws Throwable {
+        count++;
         String methodName = joinPoint.getSignature().getName();
-        logger.info("After: End call " + methodName);
+        logger.info("Visitor: " + count + ".After: End call " + methodName);
     }
 }

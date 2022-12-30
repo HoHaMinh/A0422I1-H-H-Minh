@@ -1,0 +1,96 @@
+{
+	"id": "3c51f425-109b-3ae6-7e7d-2273e8b5d1c9",
+	"name": "RestAPI",
+	"description": "",
+	"order": [
+		"9b087a0c-437d-85a2-7566-91205620cf2d",
+		"ce2fbf4d-49b6-0ec8-b3cc-46b518c11740",
+		"df4c906b-aac8-a32b-e70a-17071ffe6fb3"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1672063958792,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "9b087a0c-437d-85a2-7566-91205620cf2d",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/api/student/list",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1672064071283,
+			"name": "GetListStudent",
+			"description": "",
+			"collectionId": "3c51f425-109b-3ae6-7e7d-2273e8b5d1c9",
+			"responses": []
+		},
+		{
+			"id": "ce2fbf4d-49b6-0ec8-b3cc-46b518c11740",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/student/create",
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "SV111",
+					"equals": true,
+					"description": "",
+					"enabled": false
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1672064598577,
+			"name": "CreateStudent",
+			"description": "",
+			"collectionId": "3c51f425-109b-3ae6-7e7d-2273e8b5d1c9",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\" : \"SV001\",\n\t\"name\" : \"Quang\",\n\t\"classNameId\" : \"C01\",\n\t\"email\" : \"quang@gmail.com\",\n\t\"sex\" : \"1\",\n\t\"phoneNumber\": \"0987654321\"\n}\n"
+		},
+		{
+			"id": "df4c906b-aac8-a32b-e70a-17071ffe6fb3",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/api/student/SV001",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1672064086749,
+			"name": "GetDetailStudent",
+			"description": "",
+			"collectionId": "3c51f425-109b-3ae6-7e7d-2273e8b5d1c9",
+			"responses": []
+		}
+	]
+}
