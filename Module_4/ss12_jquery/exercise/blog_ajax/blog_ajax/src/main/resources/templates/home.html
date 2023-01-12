@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of catefory</title>
+    <style>
+        table, tr, th, td {
+            border: solid 1px;
+            align-content: center;
+            text-align: center;
+        }
+        .C100 {
+            width: 100px;
+        }
+        .C300 {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h5 th:text="${msg}"></h5>
+<h1>Main menu</h1>
+<h2>List of category</h2>
+<a th:href="@{/showAddCategoryForm}"><h4>Add new category</h4></a>
+<table>
+    <tr>
+        <th class="C100">
+            No
+        </th>
+        <th class="C300">
+            Name of category
+        </th>
+        <th>
+            Show blogs of this category
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    <tr th:each="list, iter: ${list}">
+        <td th:text="${iter.count}" class="C100"></td>
+        <td th:text="${list.nameCategory}" class="C300"><a th:href="@{showList/{id} (id=${list.id})}"></a></td>
+        <td><a th:href="@{showListBlogs/{id} (id=${list.id})}">Show</a></td>
+        <td><A th:href="@{showEditCategoryForm/{id} (id=${list.id})}">Edit</A></td>
+        <td><a th:href="@{deleteCategory/{id} (id=${list.id})}">Delete</a></td>
+    </tr>
+</table>
+<a th:href="@{/showListBlogs}"><h4>Show blogs of all categories</h4></a>
+</body>
+</html>

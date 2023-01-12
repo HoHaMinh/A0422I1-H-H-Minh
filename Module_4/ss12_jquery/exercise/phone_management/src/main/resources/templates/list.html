@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // function hide() {
+        //     $("p").hide();
+        // };
+        //
+        // function show() {
+        //     $("p").show();
+        // };
+        //
+        // function startAnimation() {
+        //     var div = $("div");
+        //     div.animate({left: '100px'}, "slow");
+        //     div.animate({fontSize: '100px'}, "slow");
+        // };
+
+        function addNewSmartPhone() {
+            //lay du lieu
+            let producer = $('#producer').val();
+            let model = $('#model').val();
+            let price = $('#price').val();
+            let newSmartphone = {
+                producer: producer,
+                model: model,
+                price: price
+            };
+            // goi ajax
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                data: JSON.stringify(newSmartphone),
+                //tên API
+                url: "/",
+                //xử lý khi thành công
+                success: successHandler
+
+            });
+            //chặn sự kiện mặc định của thẻ
+            event.preventDefault();
+        }
+
+        function successHandler() {
+            $.ajax({
+                type: "GET",
+                //tên API
+                url: "/",
+                //xử lý khi thành công
+                success: function (data) {
+                    console.log(data)
+                    // hien thi danh sach o day
+                    let content = '    <tr>\n' +
+                        '        <td>Producer</td>\n' +
+                        '        <td>Model</td>\n' +
+                        '        <td>Price</td>\n' +
+                        '        <td>Delete</td>\n' +
+                        '        <td>Edit</td>\n' +
+                        '    </tr>';
+                    for (let i = 0; i < data.length; i++) {
+                        content += getSmartphone(data[i]);
+                    }
+                    document.getElementById('smartphoneList').innerHTML = content;
+                    window.location.replace("http://localhost:8080/list");
+                }
+            });
+        }
+
+        function getSmartphone(smartphone) {
+            return `<tr><td >${smartphone.producer}</td><td >${smartphone.model}</td><td >${smartphone.price}</td>` +
+                `<td><a th:id="${smartphone.id}" th:href="${smartphone.id}">Delete</a></td><td><a th:id="${smartphone.id}" th:href="${smartphone.id}">Edit</a></td></tr>`;
+        }
+
+        function deleteSmartphone(id) {
+            // goi ajax
+            $.ajax({
+                type: "DELETE",
+                //tên API
+                url: `/${id}`,
+                //xử lý khi thành công
+                success: function () {
+                    $("#" + `${id}`).remove();
+                    window.location.replace("http://localhost:8080/list");
+                    successHandler();
+                }
+            });
+            event.preventDefault();
+        }
+
+        function showFormEditSmartphone(idEdit) {
+            // goi ajax
+            $.ajax({
+                type: "GET",
+                //tên API
+                url: "/",
+                //xử lý khi thành công
+                success: function (data) {
+                    let content = '    <tr>\n' +
+                        '        <td>Producer</td>\n' +
+                        '        <td>Model</td>\n' +
+                        '        <td>Price</td>\n' +
+                        '        <td>Delete</td>\n' +
+                        '        <td>Edit</td>\n' +
+                        '    </tr>';
+                    for (let i = 0; i < data.length; i++) {
+                        if (idEdit === data[i].id) {
+                            content += getFormEdit(data[i])
+                        } else {
+                            content += getSmartphone(data[i]);
+                        }
+                    }
+                    document.getElementById('smartphoneList').innerHTML = content;
+                }
+            });
+            event.preventDefault();
+        }
+
+        function getFormEdit(smartphone) {
+            return `<tr><td><input type="text" id="producer1" value="${smartphone.producer}"></td>
+                    <td><input type="text" id="model1" value="${smartphone.model}"></td>
+                    <td><input type="text" id="price1" value="${smartphone.price}"></td>
+                    <td><a id="edit" href="${smartphone.id}" onclick="editSmartPhone()">Save edit</a></td></tr>`;
+        }
+
+        function editSmartPhone() {
+            //lay du lieu
+            let idEdit = $("#edit").attr("href");
+            let producer = $('#producer1').val();
+            let model = $('#model1').val();
+            let price = $('#price1').val();
+            let newSmartphone = {
+                // id: `${idEdit}`,
+                producer: producer,
+                model: model,
+                price: price
+            };
+            // goi ajax
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "PUT",
+                data: JSON.stringify(newSmartphone),
+                //tên API
+                url: `/${idEdit}`,
+                //xử lý khi thành công
+                success: function () {
+                    window.location.replace("http://localhost:8080/list");
+                    successHandler();
+                }
+
+            });
+            //chặn sự kiện mặc định của thẻ
+            event.preventDefault();
+        }
+
+    </script>
+</head>
+<body>
+<form id="add-smartphone">
+    <table>
+        <tr>
+            <td>Producer:</td>
+            <td><input type="text" id="producer" placeholder="producer"></td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td><input type="text" id="model" placeholder="model"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" id="price" placeholder="price"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
+        </tr>
+    </table>
+</form>
+<h1>Smartphone List</h1>
+<table id="smartphoneList">
+    <tr>
+        <td>Producer</td>
+        <td>Model</td>
+        <td>Price</td>
+        <td>Delete</td>
+    </tr>
+    <th:block th:each="smartphone: ${smartphones}">
+        <tr>
+            <td th:text="${smartphone.producer}"></td>
+            <td th:text="${smartphone.model}"></td>
+            <td th:text="${smartphone.price}"></td>
+            <td><a th:id="${smartphone.id}" th:href="${smartphone.id}"
+                   th:onclick="deleteSmartphone([[${smartphone.id}]])">Delete</a></td>
+            <td><a th:id="${smartphone.id}" th:href="${smartphone.id}"
+                   th:onclick="showFormEditSmartphone([[${smartphone.id}]])">Edit</a></td>
+        </tr>
+    </th:block>
+</table>
+<!--<p>If you click on the "Hide" button, I will disappear.</p>-->
+<!--<button id="hide" onclick="hide()">Hide</button>-->
+<!--<button id="show" onclick="show()">Show</button>-->
+
+<!--<button onclick="startAnimation()">Start Animation</button>-->
+<!--<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to-->
+<!--    first set the CSS position property of the element to relative, fixed, or absolute!</p>-->
+<!--<div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>-->
+</body>
+</html>

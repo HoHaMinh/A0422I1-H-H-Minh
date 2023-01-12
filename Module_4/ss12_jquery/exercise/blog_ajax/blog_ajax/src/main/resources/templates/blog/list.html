@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        table, th, td, tr {
+            border: solid 1px;
+            text-align: center;
+            align-content: center;
+        }
+
+        .C50 {
+            width: 50px;
+        }
+
+        .C200 {
+            width: 200px;
+        }
+
+        .C300 {
+            width: 400px;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function findByWord() {
+            let searchingWord = $("#searching").val();
+            $.ajax({
+                url: "/search",
+                data: {
+                    word: searchingWord
+                },
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    let result = '';
+                    for (let i = 0; i < data.length; i++) {
+                        result += `
+                    <tr>
+                        <td>${i+1}</td>
+                        <td>${data[i].name}</td>
+                        <td>${data[i].category.nameCategory}</td>
+                        <td>${data[i].dateCreate}</td>
+                        <td><a href="/showEditForm/${data[i].id}">Edit</a></td>
+                        <td><a href="/showBlog/${data[i].id}">View detail</a></td>
+                        <td><a href="/delete/${data[i].id}">Delete</a></td>
+                    </tr>
+                `;
+                    }
+                    $("#result").html(result);
+                    // $("table tr:eq(2)").remove();
+                },
+                error: function (e) {
+                }
+            });
+        }
+
+        function loadMore() {
+            $.ajax({
+                url: "/loadMore",
+                data: {
+                },
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    let result = '';
+                    for (let i = 0; i < data.length; i++) {
+                        result += `
+                    <tr>
+                        <td>${i+1}</td>
+                        <td>${data[i].name}</td>
+                        <td>${data[i].category.nameCategory}</td>
+                        <td>${data[i].dateCreate}</td>
+                        <td><a href="/showEditForm/${data[i].id}">Edit</a></td>
+                        <td><a href="/showBlog/${data[i].id}">View detail</a></td>
+                        <td><a href="/delete/${data[i].id}">Delete</a></td>
+                    </tr>
+                `;
+                    }
+                    $("#result").html(result);
+                    // $("table tr:eq(2)").remove();
+                },
+                error: function (e) {
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<h5 th:text="${msg}"></h5>
+<a th:href="@{/showCreateForm}"><h3>Create new blog</h3></a>
+<input type="text" id="searching"/>
+<button onclick="findByWord()">Search</button>
+<h1>List of blogs</h1>
+<table>
+    <thead>
+    <tr>
+        <th class="C100">
+            No
+        </th>
+        <th class="C300">
+            Name of blog
+        </th>
+        <th class="C200">
+            Category
+        </th>
+        <th class="C200">
+            Date create
+        </th>
+        <th class="C50">
+            Edit
+        </th>
+        <th class="C50">
+            View
+        </th>
+        <th class="C50">
+            Delete
+        </th>
+    </tr>
+    </thead>
+    <tbody id="result">
+    <tr th:each="blog,iter: ${list}">
+        <td th:text="${iter.count}" class="C100"></td>
+        <td th:text="${blog.name}" class="C300"></td>
+        <td th:text="${blog.category.nameCategory}" class="C300"></td>
+        <td th:text="${blog.dateCreate}" class="C300"></td>
+        <td><a th:href="@{/showEditForm/{id} (id=${blog.id})}">Edit</a></td>
+        <td><a th:href="@{/showBlog/{id} (id=${blog.id})}">View detail</a></td>
+        <td><a th:href="@{/delete/{id} (id=${blog.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<button onclick="findByWord()">Load all</button>
+<div th:if="${list.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/showListBlogs (page=${pageNumber},size=${list.size})}"
+       th:text="${pageNumber}" style="float: left; width: 10px"></a>
+</div>
+<br>
+<a th:href="@{/}"><h3>Back to main menu</h3></a>
+</body>
+</html>

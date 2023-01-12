@@ -13,7 +13,10 @@
 => Là 1 cơ chế triển khai IOC (Inversion of control) . Các dependency được cung cấp và điều khiển bởi container hoặc framework
 Thao tác “tiêm” đối tượng vào trong các đối tượng khác được thực hiện bởi container hoặc framework
 3	Có bao nhiêu cách để thực hiện Dependency Injection? Trình bày?
-=>
+=> Constructor injection: các dependency đc cung cấp thông qua constructor của class.
+Setter injection: client tạo ra một setter method để các class khác có thể sử dụng chúng để cấp dependency.
+Interface injection: dependency sẽ cung cấp một hàm injector để inject nó vào bất kì client nào đc truyền vào. Các client phải implement một interface mà có một setter method dành cho việc nhận dependency.
+
 4	Framework là gì ? Framework khác Library chỗ nào ?
 => Framework là các ứng dụng phần mềm có tính trừu tượng, cung cấp các tính năng chung và thông dụng, có thể tùy biến để tạo nên các ứng dụng cụ thể khác nhau.
 Mỗi framework cung cấp 1 phương pháp riêng để xây dựng và triển khai ứng dụng
@@ -31,6 +34,7 @@ Giúp tăng tốc độ phát triển
 Cung cấp môi trường làm việc tiêu chuẩn, giúp dễ giao tiếp giữa các bên khi cùng tham gia phát triển
 Các framework thường có cộng đồng phát triển lớn, các giải pháp đã được đánh giá và thử nghiệm, hệ sinh thái đầy đủ giúp nhanh chóng xây dựng được các giải pháp tùy biến
 7	Nguyên lý đảo ngược quyền điều khiển (Inversion of Control) là gì ?
+=> 
 8	Bean là gì?
 9	Trong Spring có bao nhiêu Bean Scope?
 10	@Autowired là gì?
