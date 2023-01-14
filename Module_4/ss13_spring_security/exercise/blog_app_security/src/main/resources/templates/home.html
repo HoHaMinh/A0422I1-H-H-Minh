@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of catefory</title>
+    <style>
+        table, tr, th, td {
+            border: solid 1px;
+            align-content: center;
+            text-align: center;
+        }
+        .C100 {
+            width: 100px;
+        }
+        .C300 {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h5 th:text="${msg}"></h5>
+<h1>Main menu</h1>
+<h2>List of category</h2>
+<a th:href="@{/user/showAddCategoryForm}"><h4>Add new category</h4></a>
+<table>
+    <tr>
+        <th class="C100">
+            No
+        </th>
+        <th class="C300">
+            Name of category
+        </th>
+        <th>
+            Show blogs of this category
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    <tr th:each="list, iter: ${list}">
+        <td th:text="${iter.count}" class="C100"></td>
+        <td th:text="${list.nameCategory}" class="C300"></td>
+        <td><a th:href="@{guest/showListBlogs/{id} (id=${list.id})}">Show</a></td>
+        <td><A th:href="@{user/showEditCategoryForm/{id} (id=${list.id})}">Edit</A></td>
+        <td><a th:href="@{user/deleteCategory/{id} (id=${list.id})}">Delete</a></td>
+    </tr>
+</table>
+<a th:href="@{/guest/showListBlogs}"><h4>Show blogs of all categories</h4></a>
+
+<a th:href="@{/logout}"><h3 style="color: red">Log out</h3></a>
+</body>
+</html>

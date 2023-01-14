@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        table, th, td, tr {
+            border: solid 1px;
+            text-align: center;
+            align-content: center;
+        }
+
+        .C50 {
+            width: 50px;
+        }
+
+        .C200 {
+            width: 200px;
+        }
+
+        .C300 {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<h5 th:text="${msg}"></h5>
+<a th:href="@{/user/showCreateForm}"><h3>Create new blog</h3></a>
+<h1>List of blogs</h1>
+<table>
+    <tr>
+        <th class="C100">
+            No
+        </th>
+        <th class="C300">
+            Name of blog
+        </th>
+        <th class="C200">
+            Category
+        </th>
+        <th class="C200">
+            Date create
+        </th>
+        <th class="C50">
+            Edit
+        </th>
+        <th class="C50">
+            View
+        </th>
+        <th class="C50">
+            Delete
+        </th>
+    </tr>
+    <tr th:each="blog,iter: ${list}">
+        <td th:text="${iter.count}" class="C100"></td>
+        <td th:text="${blog.name}" class="C300"></td>
+        <td th:text="${blog.category.nameCategory}" class="C300"></td>
+        <td th:text="${blog.dateCreate}" class="C300"></td>
+        <td><a th:href="@{/user/showEditForm/{id} (id=${blog.id})}">Edit</a></td>
+        <td><a th:href="@{/guest/showBlog/{id} (id=${blog.id})}">View detail</a></td>
+        <td><a th:href="@{/user/delete/{id} (id=${blog.id})}">Delete</a></td>
+    </tr>
+</table>
+<div th:if="${list.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/guest/showListBlogs (page=${pageNumber},size=${list.size})}"
+       th:text="${pageNumber}" style="float: left; width: 10px"></a>
+</div>
+<br>
+<a th:href="@{/home}"><h3>Back to main menu</h3></a>
+</body>
+</html>

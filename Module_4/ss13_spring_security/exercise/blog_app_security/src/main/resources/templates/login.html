@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <h6 th:if="${#request.getParameter('error') == 'true'}" style="color: red">Wrong account or password</h6>
+    <form th:action="@{/doLogin}" method="post">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="accountname" placeholder="guest" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" placeholder="guest" /> </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+        <h4 style="color: #0c63e4">If you want to sign in as guest, pls use account "guest", password "guest"</h4>
+    </form>
+</body>
+</html>
