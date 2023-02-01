@@ -1,0 +1,12 @@
+package com.exercise.case_study.service;
+
+import com.exercise.case_study.model.customer.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+public interface ICustomerService {
+    void save(Customer customer);
+    Page<Customer> showAllWithPaging (Pageable pageable);
+    void remove (Integer id);
+    Customer findById (Integer id);
+}
