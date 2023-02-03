@@ -1,5 +1,7 @@
 package com.exercise.case_study.model.customer;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,8 +16,9 @@ public class Customer {
     private CustomerType customerType;
 
     private String customerName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date customerBirthday;
-    private Byte customerGender;
+    private boolean customerGender;
     private String customerIdCard;
     private String customerPhone;
     private String customerEmail;
@@ -24,7 +27,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(CustomerType customerType, String customerName, Date customerBirthday, Byte customerGender,
+    public Customer(CustomerType customerType, String customerName, Date customerBirthday, boolean customerGender,
                     String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerType = customerType;
         this.customerName = customerName;
@@ -68,11 +71,11 @@ public class Customer {
         this.customerBirthday = customerBirthday;
     }
 
-    public Byte getCustomerGender() {
+    public boolean isCustomerGender() {
         return customerGender;
     }
 
-    public void setCustomerGender(Byte customerGender) {
+    public void setCustomerGender(boolean customerGender) {
         this.customerGender = customerGender;
     }
 

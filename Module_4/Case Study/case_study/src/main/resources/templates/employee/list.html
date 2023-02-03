@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List customer</title>
+  <link rel="stylesheet" href="/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-white" style="height: 10%">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav justify-content-center" style="width: 70%">
+        <li class="nav-item">
+          <a class="nav-link active fs-6" aria-current="page" th:href="@{/employee/home}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-6" aria-current="page" th:href="@{/manager/employee}">Employee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-6" aria-current="page" th:href="@{/employee/customer}">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-6" aria-current="page" th:href="@{/employee/service}">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active fs-6" aria-current="page" th:href="@{/employee/contract}">Contract</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="height: 65%">
+  <div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical"
+         style="width: 20%">
+      <a  style="text-decoration: none" th:href="@{/manager/employee}">
+        <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                aria-selected="true">Employee Management
+        </button>
+      </a>
+      <a  style="text-decoration: none" th:href="@{/employee/customer}">
+        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                aria-selected="false">Customer Management
+        </button>
+      </a>
+      <a  style="text-decoration: none" th:href="@{/employee/service}">
+        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages"
+                type="button" role="tab" aria-controls="v-pills-messages"
+                aria-selected="false">Service management
+        </button>
+      </a>
+      <a style="text-decoration: none" th:href="@{/employee/contract}">
+        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings"
+                type="button" role="tab" aria-controls="v-pills-settings"
+                aria-selected="false">Contract management
+        </button>
+      </a>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent" style="width: 80%">
+      <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
+           tabindex="0">
+        <div style="height: 20%; width: 100%">
+          <h10 style="text-align: left" class="text-danger" th:if="${mess != null}" th:text="${mess}">
+          </h10>
+          <h3 style="text-align: center; height: 10%" class="text-primary">List of employees</h3>
+          <a th:href="@{/manager/employee/showAddAccountForm}" style="text-decoration: none">
+            <button type="button" class="btn btn-primary">Create new employee</button>
+          </a>
+        </div>
+        <table class="table table-primary table-hover" style="height: 70%; width: 100%" th:if="${employees != null}">
+          <tr>
+            <th class="col-auto">No</th>
+            <th class="col-auto">Name</th>
+            <th class="col-auto">Birthday</th>
+            <th class="col-auto">Id Card</th>
+            <th class="col-auto">Salary</th>
+            <th class="col-auto">Phone</th>
+            <th class="col-auto">Email</th>
+            <th class="col-auto">Address</th>
+            <th class="col-auto">Position</th>
+            <th class="col-auto">Education Degree</th>
+            <th class="col-auto">Division</th>
+            <th class="col-auto">Account</th>
+            <th class="col-auto">Edit</th>
+            <th class="col-auto">Delete</th>
+          </tr>
+          <tr th:each="employee,iter: ${employees}">
+            <td th:text="${iter.count}"></td>
+            <td th:text="${employee.getEmployeeName()}"></td>
+            <td th:text="${#dates.format(employee.getEmployeeBirthday(), 'dd-MM-yyyy')}"></td>
+            <td th:text="${employee.getEmployeeIdCard()}"></td>
+            <td th:text="${employee.getEmployeeSalary()}"></td>
+            <td th:text="${employee.getEmployeePhone()}"></td>
+            <td th:text="${employee.getEmployeeEmail()}"></td>
+            <td th:text="${employee.getEmployeeAddress()}"></td>
+            <td th:text="${employee.position.getPositionName()}"></td>
+            <td th:text="${employee.educationDegree.getEducationDegreeName()}"></td>
+            <td th:text="${employee.division.getDivisionName()}"></td>
+            <td th:text="${employee.userId.getUsername()}"></td>
+            <td>
+              <a th:href="@{/manager/employee/showEditForm/{id} (id=${employee.getEmployeeId()})}">
+                <button type="button" class="btn btn-secondary">Edit</button>
+              </a>
+            </td>
+            <td>
+              <a th:href="@{/manager/employee/delete/{id} (id=${employee.getEmployeeId()})}">
+                <button type="button" class="btn btn-warning">Delete</button>
+              </a>
+            </td>
+          </tr>
+        </table>
+        <div style="height: 10%; float: left"
+             th:if="${employees.totalPages > 0}" class="pagination"
+             th:each="pageNumber : ${pageNumbers}">
+          <a style="float: left; width: 20px" th:href="@{/manager/employee (page=${pageNumber},size=${employees.size})}"
+             th:text="${pageNumber}"></a>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"
+           tabindex="0"></div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"
+           tabindex="0"></div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"
+           tabindex="0"></div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-white" style="height: 5%">
+  <h6 style="text-align: center" class="text-primary bg-light">Right reserved by Furama</h6>
+</div>
+<script src="/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -2,8 +2,8 @@ package com.exercise.case_study.service;
 
 
 import com.exercise.case_study.model.employee.UserId;
-import com.exercise.case_study.repository.IUserIdRepository;
-import com.exercise.case_study.repository.IUserRoleRepository;
+import com.exercise.case_study.repository.employee.IUserIdRepository;
+import com.exercise.case_study.repository.employee.IUserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,9 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.security.AccessControlContext;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service

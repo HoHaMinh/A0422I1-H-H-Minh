@@ -1,5 +1,7 @@
 package com.exercise.case_study.model.employee;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
     private String employeeName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date employeeBirthday;
     private String employeeIdCard;
     private Double employeeSalary;
