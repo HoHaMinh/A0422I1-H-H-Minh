@@ -7,12 +7,12 @@
 <body>
 <h1>Currency convert</h1>
 <form method="get" action="/convert">
-  <p>Pls input your USD want to exchange. Rate: 1 USD = 24,857 VND</p>
+  <p>Pls input your USD want to exchange. Rate: 1 USD = 23,890 VND</p>
   <input type="number" name="usd" placeholder="input usd">
     <input type="submit">
 </form>
 <c:if test="${not empty vnd}">
-  <p>Result is: ${vnd}</p>
+  <p>Result is: ${vnd} VND</p>
 </c:if>
 
 </body>

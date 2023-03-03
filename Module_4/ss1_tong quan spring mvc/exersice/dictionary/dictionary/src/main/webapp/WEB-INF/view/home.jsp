@@ -12,7 +12,7 @@
     <input type="submit">
 </form>
 <c:if test="${not empty result}">
-<p>Result is: ${result}</p>
+<p>Result of translation is: ${result}</p>
 </c:if>
 </body>
 </html>
