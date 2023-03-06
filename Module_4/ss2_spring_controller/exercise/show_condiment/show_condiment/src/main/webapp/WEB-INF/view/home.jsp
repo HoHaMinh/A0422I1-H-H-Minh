@@ -21,11 +21,10 @@
 <c:if test="${not empty condiments}">
     <h4>Your selection: </h4>
     <c:forEach var="condiment" items="${condiments}">
-        <h4>
+        <h4 style="color: red">
             ${condiment}
         </h4>
     </c:forEach>
 </c:if>
-
 </body>
 </html>
