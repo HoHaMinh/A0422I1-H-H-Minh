@@ -53,7 +53,9 @@
         </td>
         </form:form>
         <td>
-            <a href="/"><button type="submit">Cancel</button></a>
+            <a href="/">
+                <button type="submit">Cancel</button>
+            </a>
         </td>
     </tr>
 </table>

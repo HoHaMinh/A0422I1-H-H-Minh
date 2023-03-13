@@ -6,7 +6,7 @@
     <title>Home</title>
 </head>
 <body>
-<h3>
+<h3 style="color: red">
     ${msg}
 </h3>
 <h1>
@@ -21,6 +21,8 @@
     <p>Spams filter: Not Enable</p>
 </c:if>
 <p>Signature: ${emailConfig.getSignature()}</p>
-<a href="/showUpdate"><button type="submit">Update</button></a>
+<a href="/showUpdate">
+    <button type="submit">Update</button>
+</a>
 </body>
 </html>

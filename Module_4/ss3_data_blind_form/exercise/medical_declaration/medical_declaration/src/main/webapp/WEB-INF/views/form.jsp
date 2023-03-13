@@ -22,6 +22,7 @@
         .red {
             color: red;
         }
+
         span {
             font-weight: bold;
         }
@@ -199,6 +200,8 @@
     </div>
     <button type="submit">Gởi tờ khai</button>
 </form:form>
-<a href="/"><button type="submit">Trở lại menu chính</button></a>
+<a href="/">
+    <button type="submit">Trở lại menu chính</button>
+</a>
 </body>
 </html>

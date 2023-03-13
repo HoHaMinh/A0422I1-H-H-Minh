@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MedicalService implements IMedicalService{
+public class MedicalService implements IMedicalService {
     @Autowired
     private IMedicalRepository medicalRepository;
+
     @Override
     public MedicalDeclaration show() {
         return medicalRepository.show();

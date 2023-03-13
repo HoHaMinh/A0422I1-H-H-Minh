@@ -33,7 +33,7 @@ public class MedicalDeclaration {
     public MedicalDeclaration() {
     }
 
-    public MedicalDeclaration(String name, Integer yearOfBirth, boolean gender, String nationality, String nationalityId, String transportVehicle, String vehicleId, String seatNo, Date startDate, Date endDate, String visitedCity, String cityOfAddress, String districtOfAddress, String wardOfAddress, String livingOfAddress, String phone, String email,ArrayList<String> symptom, boolean visitDangerousPlaces, boolean contactIllPerson) {
+    public MedicalDeclaration(String name, Integer yearOfBirth, boolean gender, String nationality, String nationalityId, String transportVehicle, String vehicleId, String seatNo, Date startDate, Date endDate, String visitedCity, String cityOfAddress, String districtOfAddress, String wardOfAddress, String livingOfAddress, String phone, String email, ArrayList<String> symptom, boolean visitDangerousPlaces, boolean contactIllPerson) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
         this.gender = gender;
