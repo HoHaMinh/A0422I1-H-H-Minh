@@ -33,26 +33,26 @@ public class BlogController {
     }
 
     @GetMapping("/showEditForm/{id}")
-    public ModelAndView showEditForm (@PathVariable("id") Integer id) {
-        return new ModelAndView("editForm","blog",blogService.showById(id));
+    public ModelAndView showEditForm(@PathVariable("id") Integer id) {
+        return new ModelAndView("editForm", "blog", blogService.showById(id));
     }
 
     @GetMapping("/edit")
-    public String edit (@ModelAttribute("blog") Blog blog, RedirectAttributes redirectAttributes) {
+    public String edit(@ModelAttribute("blog") Blog blog, RedirectAttributes redirectAttributes) {
         blogService.save(blog);
         redirectAttributes.addFlashAttribute("msg", "Edit successfully");
         return "redirect:";
     }
 
     @GetMapping("/showBlog/{id}")
-    public ModelAndView showBlog (@PathVariable("id") Integer id) {
-        return new ModelAndView("detail","blog", blogService.showById(id));
+    public ModelAndView showBlog(@PathVariable("id") Integer id) {
+        return new ModelAndView("detail", "blog", blogService.showById(id));
     }
 
     @GetMapping("/delete/{id}")
-    public String delete (@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+    public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         blogService.remove(id);
-        redirectAttributes.addFlashAttribute("msg","Delete successfully");
+        redirectAttributes.addFlashAttribute("msg", "Delete successfully");
         return "redirect:/";
     }
 }
