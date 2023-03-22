@@ -6,13 +6,13 @@ import music_app.service.IMusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 @Controller
 @PropertySource("classpath:file_upload.properties")
@@ -24,19 +24,21 @@ public class MusicAppController {
     private IMusicService musicService;
 
     @GetMapping("")
-    public ModelAndView showList () {
+    public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("list");
-        modelAndView.addObject("songs",musicService.showAll());
-        modelAndView.addObject("filePath",fileUpload);
+        modelAndView.addObject("songs", musicService.showAll());
+        modelAndView.addObject("filePath", fileUpload);
         return modelAndView;
     }
+
     @GetMapping("/showAddForm")
-    public ModelAndView showAddForm () {
-        ModelAndView modelAndView = new ModelAndView("addForm","songs",new Music());
+    public ModelAndView showAddForm() {
+        ModelAndView modelAndView = new ModelAndView("addForm", "songs", new Music());
         return modelAndView;
     }
+
     @PostMapping("/upload")
-    public String update (@ModelAttribute("songs")MusicForm musicForm, RedirectAttributes redirectAttributes) {
+    public String update(@ModelAttribute("songs") MusicForm musicForm, RedirectAttributes redirectAttributes) {
         String mess = "";
         String fileName = musicService.addFile(musicForm, fileUpload);
         if ("Wrong input".equals(fileName)) {
@@ -53,34 +55,28 @@ public class MusicAppController {
     }
 
     @GetMapping("/showEditForm/{name}")
-    public ModelAndView showEditForm (@PathVariable("name") String name) {
-        ModelAndView modelAndView = new ModelAndView("editForm","song",musicService.showSong(name));
+    public ModelAndView showEditForm(@PathVariable("name") String name) {
+        ModelAndView modelAndView = new ModelAndView("editForm", "song", musicService.showSong(name));
         return modelAndView;
     }
 
     @PostMapping("/edit")
-    public String update (@ModelAttribute("songs")Music music, RedirectAttributes redirectAttributes) {
+    public String update(@ModelAttribute("songs") Music music, RedirectAttributes redirectAttributes) {
         musicService.updateSong(music);
         redirectAttributes.addFlashAttribute("msg", "Edit successfully");
         return "redirect:/";
     }
 
     @GetMapping("/delete/{name}/{song}")
-    public String delete (@PathVariable("name") String name, @PathVariable("song") String song) {
+    public String delete(@PathVariable("name") String name, @PathVariable("song") String song) {
         musicService.deleteSong(name);
-        musicService.deleteSongForm(fileUpload,song);
+        musicService.deleteSongForm(fileUpload, song);
         return "redirect:/";
     }
-//    @GetMapping("/listen/{song}")
-//    public String listen (@PathVariable("song") String song, String fileUpload, HttpServletResponse response) {
-//        String filePath = fileUpload + song;
-//        try {
-//            SimpleAudioPlayer audioPlayer = new SimpleAudioPlayer(filePath);
-//            Clip clip = null;
-//            clip.open(audioPlayer);
-//        }catch (Exception ex) {
-//            System.out.println("Error with play audio");
-//        }
-//        return null;
-//    }
+
+    @GetMapping(value = "/listen", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public Resource listen() {
+//        String filePath = fileUpload + song; @RequestParam("song") String song, String fileUpload
+        return new FileSystemResource("D:\\Code gym\\Program\\Module_4\\ss5_ORM\\exercise\\music_app\\exercise\\src\\main\\webapp\\upload");
+    }
 }

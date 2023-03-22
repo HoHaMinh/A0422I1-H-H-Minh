@@ -3,7 +3,6 @@ package music_app.bean;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MusicForm {
-
     private String name;
     private String singer;
     private String type;

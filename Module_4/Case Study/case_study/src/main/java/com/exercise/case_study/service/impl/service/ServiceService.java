@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 @org.springframework.stereotype.Service
 public class ServiceService implements IServiceService {
     @Autowired
@@ -20,5 +22,10 @@ public class ServiceService implements IServiceService {
     @Override
     public Page<Service> showAllWithPaging(Pageable pageable) {
         return serviceRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Service> showAll() {
+        return (List<Service>) serviceRepository.findAll();
     }
 }

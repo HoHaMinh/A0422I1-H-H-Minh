@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="12575e2d-7358-42c8-8423-813da6d1e010" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Module 1/Câu hỏi audit module 1-BP2.0.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module_2/src/case_study/Lý thuyết Module 2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case_study/Audit_Module 3.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss10_jstl/exercises/list_customer/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/ss10_jstl/exercises/list_customer/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss10_jstl/exercises/list_customer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ss10_jstl/exercises/list_customer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss10_jstl/exercises/simple_caculator/simple_caculator/src/main/java/com/example/simple_caculator/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss10_jstl/exercises/simple_caculator/simple_caculator/src/main/java/com/example/simple_caculator/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss11_mvc/exercises/product_manager/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/ss11_mvc/exercises/product_manager/.idea/.name" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HUONnaqECt1Be6lLXccwaJuszJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Code gym/Program/Module_3/exam2/exam2_jsp_servlet/exam2/src/main/java/controller/Exam2.java"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12575e2d-7358-42c8-8423-813da6d1e010" name="Changes" comment="" />
+      <created>1668336158073</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668336158073</updated>
+      <workItem from="1668336159386" duration="8000" />
+      <workItem from="1668336266587" duration="111000" />
+      <workItem from="1668336616168" duration="3836000" />
+      <workItem from="1668425875202" duration="7091000" />
+      <workItem from="1668596585043" duration="6925000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

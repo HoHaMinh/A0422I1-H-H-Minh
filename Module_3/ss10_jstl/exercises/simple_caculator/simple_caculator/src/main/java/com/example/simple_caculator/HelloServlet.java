@@ -4,7 +4,7 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-//@WebServlet(name = "helloServlet", urlPatterns = "/caculator")
+@WebServlet(name = "helloServlet", urlPatterns = "/caculator")
 public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("view/caculator.jsp");

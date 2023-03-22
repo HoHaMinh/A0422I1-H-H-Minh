@@ -43,6 +43,7 @@ public class EmployeeController {
                             @RequestParam("size") Optional<Integer> size) {
         Integer currentPage = page.orElse(1);
         Integer pageSize = size.orElse(5);
+        model.addAttribute("currentPage", currentPage);
         Page<Employee> employees = employeeService.showAllWithPaging(PageRequest.of(currentPage - 1, pageSize));
         model.addAttribute("employees", employees);
         int totalPages = employees.getTotalPages();

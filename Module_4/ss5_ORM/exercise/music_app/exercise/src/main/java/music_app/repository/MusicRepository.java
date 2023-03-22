@@ -13,14 +13,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+
 @Repository
 @Transactional
-public class MusicRepository implements IMusicRepository{
+public class MusicRepository implements IMusicRepository {
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
+
     @Override
     public List<Music> showAll() {
-        return entityManager.createQuery("select m from Music m").getResultList() ;
+        return entityManager.createQuery("select m from Music m").getResultList();
     }
 
     @Override
@@ -29,7 +31,7 @@ public class MusicRepository implements IMusicRepository{
     }
 
     @Override
-    public void addFile(MusicForm musicForm, String fileUpload,String fileName) {
+    public void addFile(MusicForm musicForm, String fileUpload, String fileName) {
         try {
             FileCopyUtils.copy(musicForm.getSong().getBytes(), new File(fileUpload + fileName));
         } catch (IOException ex) {
@@ -49,7 +51,7 @@ public class MusicRepository implements IMusicRepository{
 
     @Override
     public Music showSong(String name) {
-        return entityManager.find(Music.class,name);
+        return entityManager.find(Music.class, name);
     }
 
     @Override

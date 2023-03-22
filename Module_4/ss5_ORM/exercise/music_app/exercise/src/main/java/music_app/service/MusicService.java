@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+
 @Service
-public class MusicService implements IMusicService{
+public class MusicService implements IMusicService {
     @Autowired
     private IMusicRepository musicRepository;
 
@@ -76,6 +77,6 @@ public class MusicService implements IMusicService{
 
     @Override
     public void deleteSongForm(String fileUpload, String song) {
-        musicRepository.deleteSongForm(fileUpload,song);
+        musicRepository.deleteSongForm(fileUpload, song);
     }
 }

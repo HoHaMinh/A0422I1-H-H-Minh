@@ -13,14 +13,13 @@
 </head>
 <body>
 <h1>List of songs</h1>
+    <audio controls>
+        <source src="./upload/TimLai.mp3" type="audio/mpeg">
+
+<!--        <A href="file://D:/Code%20gym/Program/Module_4/ss5_ORM/exercise/music_app/exercise/src/main/webapp/upload/TimLai.mp3">listen</A>-->
+    </audio>
 <a th:href="@{/showAddForm}" style="text-decoration: none"><h3>Add new song</h3></a>
 <h4 th:text="${msg}"></h4>
-<input id="audio_file" type="file" accept="audio/*"
-       src="file///D:/Code gym/Program/Module_4/ss5_ORM/exercise/music_app/exercise/src/main/webapp/upload/TimLai.mp3"/>
-<p>
-    <audio controls id="audio_player"></audio>
-</p>
-
 <table>
     <tr>
         <th>
@@ -38,6 +37,12 @@
         <th>
             Edit
         </th>
+        <th>
+            Delete
+        </th>
+        <th>
+            Listen
+        </th>
     </tr>
     <tr th:each="songs, Iter: ${songs}" th:object="${songs}">
         <td th:text="*{name}"></td>
@@ -46,7 +51,7 @@
         <td th:text="*{song}"></td>
         <td><a th:href="@{/showEditForm/{name} (name=*{name})}">Edit</a></td>
         <td><a th:href="@{/delete/{name}/{song} (name=*{name},song=*{song})}">Delete</a></td>
-        <td><a th:href="@{/listen/{song} (song=*{song})}">Listen</a></td>
+        <td><a th:href="@{/listen (song=*{song})}">Listen</a></td>
     </tr>
 </table>
 </body>
