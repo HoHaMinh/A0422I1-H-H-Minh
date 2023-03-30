@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface IUserService {
     public void save(User user);
+
     public List<User> showAll();
 }

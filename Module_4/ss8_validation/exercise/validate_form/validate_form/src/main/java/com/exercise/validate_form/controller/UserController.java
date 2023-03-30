@@ -11,23 +11,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.validation.Valid;
 
 @Controller
 public class UserController {
     @Autowired
-    IUserService userService;
+    private IUserService userService;
     @Autowired
-    UserValidate userValidate;
+    private UserValidate userValidate;
 
     @GetMapping("")
-    public ModelAndView showList () {
-        return new ModelAndView("list","list",userService.showAll());
+    public ModelAndView showList() {
+        return new ModelAndView("list", "list", userService.showAll());
     }
 
     @GetMapping("/showCreateForm")
-    public String showCreateForm (Model model) {
+    public String showCreateForm(Model model) {
         model.addAttribute("user", new User());
         return "createForm";
     }

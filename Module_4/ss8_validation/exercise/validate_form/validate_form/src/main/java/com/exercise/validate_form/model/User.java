@@ -19,7 +19,7 @@ public class User {
     private String lastName;
     @Pattern(regexp = "^0+[0-9]{9}$", message = "{phoneNumber}")
     private String phoneNumber;
-    @Min(value = 18,message = "{age}")
+    @Min(value = 18, message = "{age}")
     private Integer age;
     @Email(message = "{email}")
     private String email;
