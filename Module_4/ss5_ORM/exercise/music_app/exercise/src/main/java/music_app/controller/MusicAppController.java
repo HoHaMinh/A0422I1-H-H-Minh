@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -74,9 +75,9 @@ public class MusicAppController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/listen", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public Resource listen() {
-//        String filePath = fileUpload + song; @RequestParam("song") String song, String fileUpload
-        return new FileSystemResource("D:\\Code gym\\Program\\Module_4\\ss5_ORM\\exercise\\music_app\\exercise\\src\\main\\webapp\\upload");
+    @GetMapping(value = "/listen")
+    public String listen(@RequestParam("song") String song, Model model) {
+        model.addAttribute("song", song);
+        return "listen";
     }
 }
