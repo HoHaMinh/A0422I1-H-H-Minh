@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BadCommentService implements IBadCommentService{
+public class BadCommentService implements IBadCommentService {
     @Autowired
-    IBadCommentRepository badCommentRepository;
+    private IBadCommentRepository badCommentRepository;
 
     @Override
     public void save(BadComment badComment) {

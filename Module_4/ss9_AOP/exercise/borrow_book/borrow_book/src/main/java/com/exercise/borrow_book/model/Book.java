@@ -1,9 +1,7 @@
 package com.exercise.borrow_book.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -13,7 +11,16 @@ public class Book {
     private String bookName;
     private Integer bookQuantity;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "borrowId")
+    private List<BookBorrow> bookBorrowList;
+
     public Book() {
+    }
+
+    public Book(String bookName, Integer bookQuantity, List<BookBorrow> bookBorrowList) {
+        this.bookName = bookName;
+        this.bookQuantity = bookQuantity;
+        this.bookBorrowList = bookBorrowList;
     }
 
     public Book(String bookName, Integer bookQuantity) {
@@ -43,5 +50,13 @@ public class Book {
 
     public void setBookQuantity(Integer bookQuantity) {
         this.bookQuantity = bookQuantity;
+    }
+
+    public List<BookBorrow> getBookBorrowList() {
+        return bookBorrowList;
+    }
+
+    public void setBookBorrowList(List<BookBorrow> bookBorrowList) {
+        this.bookBorrowList = bookBorrowList;
     }
 }

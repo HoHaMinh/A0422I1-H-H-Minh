@@ -4,15 +4,18 @@ import com.exercise.picture.model.Comment;
 import com.exercise.picture.repository.ICommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+@Transactional
 @Service
-public class CommentService implements ICommentService{
+public class CommentService implements ICommentService {
     @Autowired
-    ICommentRepository commentRepository;
+    private ICommentRepository commentRepository;
 
     @Override
     public List<Comment> showCommentThisDay() {
@@ -36,11 +39,11 @@ public class CommentService implements ICommentService{
     @Override
     public void updateLike(Integer id) {
         Integer numbersLike = commentRepository.showNumberLike(id);
-        if(numbersLike==null) {
+        if (numbersLike == null) {
             numbersLike = 1;
         } else {
             numbersLike++;
         }
-        commentRepository.updateLike(id,numbersLike);
+        commentRepository.updateLike(id, numbersLike);
     }
 }
