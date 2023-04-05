@@ -4,21 +4,22 @@ import com.exercise.validate_music.model.Music;
 import com.exercise.validate_music.model.MusicForm;
 import com.exercise.validate_music.service.IMusicFormService;
 import com.exercise.validate_music.service.IMusicService;
+import com.exercise.validate_music.validate.ValidatorMusic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
 @Controller
+@Transactional
 @PropertySource("classpath:file_upload.properties")
 public class MusicController {
     @Value("${file-upload}")
@@ -29,6 +30,9 @@ public class MusicController {
 
     @Autowired
     private IMusicFormService musicFormService;
+
+    @Autowired
+    private ValidatorMusic validatorMusic;
 
     @GetMapping("")
     public ModelAndView showList() {
@@ -45,7 +49,12 @@ public class MusicController {
     }
 
     @PostMapping("/upload")
-    public String update(@ModelAttribute("songs") MusicForm musicForm, RedirectAttributes redirectAttributes) {
+    public String update(@Valid @ModelAttribute("songs") MusicForm musicForm, BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes, Model model) {
+        validatorMusic.validate(musicForm,bindingResult);
+        if (bindingResult.hasErrors()) {
+            return "addForm";
+        }
         String mess = "";
         String fileName = musicFormService.addFile(musicForm, fileUpload);
         if ("Wrong input".equals(fileName)) {
@@ -74,15 +83,15 @@ public class MusicController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete/{name}/{song}")
-    public String delete(@PathVariable("name") String name, @PathVariable("song") String song) {
+    @GetMapping("/delete")
+    public String delete(@RequestParam("name") String name, @RequestParam("song") String song) {
         musicService.deleteSong(name);
         musicFormService.deleteSongForm(fileUpload, song);
         return "redirect:/";
     }
 
-    @GetMapping(value = "/listen", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public Resource listen() {
-        return new FileSystemResource("D:\\Code gym\\Program\\Module_4\\ss5_ORM\\exercise\\music_app\\exercise\\src\\main\\webapp\\upload");
+    @GetMapping(value = "/listen")
+    public ModelAndView listen(@RequestParam("song") String song) {
+        return new ModelAndView("listen", "song", song);
     }
 }

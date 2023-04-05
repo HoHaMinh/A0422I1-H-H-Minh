@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Upload new song</h1>
+<table>
+    <form th:action="@{/upload}" method="post" th:object="${songs}" enctype="multipart/form-data">
+        <tr>
+            <td>
+                Name of song:
+            </td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+                <br>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Singer:
+            </td>
+            <td>
+                <input type="text" th:field="*{singer}"/>
+                <br>
+                <span th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Type of song:
+            </td>
+            <td>
+                <input type="text" th:field="*{type}"/>
+                <br>
+                <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Song:
+            </td>
+            <td>
+                <input type="file" th:field="*{song}" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Upload</button>
+            </td>
+    </form>
+    <td>
+        <a th:href="@{/}">
+            <button type="submit">Cancel</button>
+        </a>
+    </td>
+    </tr>
+</table>
+</body>
+</html>

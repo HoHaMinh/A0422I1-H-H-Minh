@@ -35,10 +35,10 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
                 .addResourceLocations("file:" + fileUpload);
     }
 
-    @Bean(name = "multipartResolver")
-    public CommonsMultipartResolver getResolver() throws IOException {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSizePerFile(52428800);
-        return resolver;
-    }
+//    @Bean(name = "multipartResolver")
+//    public CommonsMultipartResolver getResolver() throws IOException {
+//        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+//        resolver.setMaxUploadSizePerFile(52428800);
+//        return resolver;
+//    }
 }

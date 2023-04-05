@@ -4,12 +4,14 @@ import com.exercise.validate_music.model.MusicForm;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.FileCopyUtils;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Repository
+@Transactional
 public class MusicFormRepository implements IMusicFormRepository{
     @Override
     public void addFile(MusicForm musicForm, String fileUpload, String fileName) {
