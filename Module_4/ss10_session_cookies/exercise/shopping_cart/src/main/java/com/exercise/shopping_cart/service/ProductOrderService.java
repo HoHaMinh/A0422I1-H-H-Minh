@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductOrderService implements IProductOrderService{
     @Autowired
-    IProductOrderRepository productOrderRepository;
+    private IProductOrderRepository productOrderRepository;
 
     @Override
     public void save(ProductOrder productOrder) {
