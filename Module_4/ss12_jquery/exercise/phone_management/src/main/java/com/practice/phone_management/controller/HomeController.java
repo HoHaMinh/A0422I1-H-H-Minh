@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 @Controller
@@ -19,6 +20,7 @@ public class HomeController {
     public ResponseEntity<SmartPhone> createSmartphone(@RequestBody SmartPhone smartphone) {
         return new ResponseEntity<>(smartphoneService.save(smartphone), HttpStatus.CREATED);
     }
+
     @GetMapping("/list")
     public ModelAndView getAllSmartphonePage() {
         ModelAndView modelAndView = new ModelAndView("list");
@@ -27,14 +29,14 @@ public class HomeController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<SmartPhone>> getAllSmartphone () {
-        return new ResponseEntity<>(smartphoneService.findAll(),HttpStatus.OK);
+    public ResponseEntity<List<SmartPhone>> getAllSmartphone() {
+        return new ResponseEntity<>(smartphoneService.findAll(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<SmartPhone> deleteSmartphone(@PathVariable Long id) {
         SmartPhone smartphoneOptional = smartphoneService.findById(id);
-        if (smartphoneOptional==null) {
+        if (smartphoneOptional == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         smartphoneService.remove(id);
@@ -42,12 +44,12 @@ public class HomeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SmartPhone> editSmartphone (@PathVariable Long id, @RequestBody SmartPhone smartphone) {
+    public ResponseEntity<SmartPhone> editSmartphone(@PathVariable Long id, @RequestBody SmartPhone smartphone) {
         SmartPhone smartPhone1 = smartphoneService.findById(id);
-        if (smartPhone1==null) {
+        if (smartPhone1 == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         smartphone.setId(smartPhone1.getId());
-        return new ResponseEntity<>(smartphoneService.save(smartphone),HttpStatus.OK);
+        return new ResponseEntity<>(smartphoneService.save(smartphone), HttpStatus.OK);
     }
 }

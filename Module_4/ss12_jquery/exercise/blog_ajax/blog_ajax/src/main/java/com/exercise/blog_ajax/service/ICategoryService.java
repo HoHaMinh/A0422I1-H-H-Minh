@@ -1,6 +1,7 @@
 package com.exercise.blog_ajax.service;
 
 import com.exercise.blog_ajax.model.Category;
+
 import java.util.List;
 
 public interface ICategoryService {

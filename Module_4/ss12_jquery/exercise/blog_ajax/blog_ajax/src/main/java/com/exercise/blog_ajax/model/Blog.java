@@ -1,6 +1,7 @@
 package com.exercise.blog_ajax.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
