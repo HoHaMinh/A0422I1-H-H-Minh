@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <head th:replace="~{template::header('Library')}">
+</head>
+<body>
+<nav th:replace="~{template::navbar}"></nav>
+<section th:replace="~{layout::sidebar}"></section>
+<div th:replace="~{template::script}"></div>
+<script src="/js/list.js"></script>
+</body>
+</html>

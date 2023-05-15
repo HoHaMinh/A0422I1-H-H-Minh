@@ -1,0 +1,10 @@
+var width;
+var height;
+width = 5;
+height = 6;
+var area = width * height;
+console.log("The area is: ".concat(area));
+width = 4;
+height = 3;
+area = width * height;
+console.log("The area is: ".concat(area));
