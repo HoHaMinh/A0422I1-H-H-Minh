@@ -1,0 +1,17 @@
+<h1>Caculator</h1>
+<label>Pls input 2 number</label>
+<br>
+<input type="number" [(ngModel)]="number1">
+<input type="number" [(ngModel)]="number2">
+<br>
+<button type="button" (click)="sum(number1,number2)">+</button>
+<button type="button" (click)="minus(number1,number2)">-</button>
+<button type="button" (click)="multiplied(number1,number2)">x</button>
+<button type="button" (click)="divide(number1,number2)">/</button>
+<br>
+<ng-container *ngIf="result==null; else block">
+  {{mess}}
+</ng-container>
+<ng-template #block>
+  Result is: {{result}}
+</ng-template>
