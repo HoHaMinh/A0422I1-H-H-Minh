@@ -1,0 +1,92 @@
+<h1>Register new user</h1>
+<form action="" [formGroup]="register">
+  <div class="input-group">
+    <label for="email">Email: </label>
+    <input #email
+           type="email"
+           class="form-control" formControlName="email" id="email">
+  </div>
+  <p class="text-danger" *ngIf="register.controls.email?.touched && register.controls.email?.errors?.required">
+    Email must be filled
+  </p>
+  <p class="text-danger" *ngIf="register.controls.email?.touched && register.controls.email?.errors?.pattern">
+    Email must be follow pattern 'xxx@xxx.xxx'
+  </p>
+  <div class="input-group">
+    <label for="pass">Password: </label>
+    <input #password
+           type="password"
+           class="form-control" id="pass" formControlName="password">
+  </div>
+  <p class="text-danger" *ngIf="register.controls.password?.touched && register.controls.password?.errors?.required">
+    Password must be filled
+  </p>
+  <p class="text-danger" *ngIf="register.controls.password?.touched && register.controls.password?.errors?.minLength">
+    Min length of password must be 6 characters
+  </p>
+  <div class="input-group">
+    <label for="confirmPass">Confirm Password: </label>
+    <input #confirmPassword
+           type="password"
+           class="form-control" id="confirmPass">
+  </div>
+  <p class="text-danger" *ngIf="confirmPassword.value != password.value">
+    Confirm pass must be same with pass
+  </p>
+  <div class="input-group">
+    <label for="country">Country: </label>
+    <select #country class="form-select" id="country" required formControlName="country">
+      <option *ngFor="let c of countries ; index as i" [value]="c">{{c}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="register.controls.country?.touched && register.controls.country?.errors?.required">
+    Country must be choose
+  </p>
+  <div class="input-group">
+    <label for="age">Age: </label>
+    <input #age
+           type="number"
+           class="form-control" id="age" formControlName="age">
+  </div>
+  <p class="text-danger" *ngIf="register.controls.age?.touched && register.controls.age?.errors?.required">
+    Age must be filled
+  </p>
+  <p class="text-danger" *ngIf="register.controls.age?.touched && register.controls.age?.errors?.min">
+    Age must be greater than 18
+  </p>
+  <label>Gender: </label>
+  <br>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked #gender
+           value="Male" formControlName="gender">
+    <label class="form-check-label" for="flexRadioDefault1">
+      Male
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" #gender value="Female">
+    <label class="form-check-label" for="flexRadioDefault2" formControlName="gender">
+      Female
+    </label>
+  </div>
+  <p class="text-danger" *ngIf="register.controls.gender?.touched && register.controls.gender?.errors?.required">
+    Gender must be choose
+  </p>
+  <div class="input-group">
+    <label for="phone">Phone: </label>
+    <input #phone
+           type="text"
+           class="form-control" id="phone" formControlName="phone">
+  </div>
+  <p class="text-danger" *ngIf="register.controls.phone?.touched && register.controls.phone?.errors?.required">
+    Phone must be filled
+  </p>
+  <p class="text-danger" *ngIf="register.controls.phone?.touched && register.controls.phone?.errors?.pattern">
+    Phone must be follow pattern "0084xxx" xxx is between 9 and 10 characters
+  </p>
+  <br>
+  <button class="btn btn-primary" type="button"
+          (click)="addUser(email.value,password.value,country.value, age.value, gender.value, phone.value)">
+    Register new user
+  </button>
+</form>
