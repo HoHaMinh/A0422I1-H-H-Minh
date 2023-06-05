@@ -1,0 +1,11 @@
+<div *ngIf="word; else temp">
+  <h2>Meaning: {{word.meaning}}</h2>
+</div>
+
+<ng-template #temp>
+  <h2>Nothing to translate</h2>
+</ng-template>
+
+  <a routerLink="/dictionary">
+    Back to main menu of dictionary
+  </a>

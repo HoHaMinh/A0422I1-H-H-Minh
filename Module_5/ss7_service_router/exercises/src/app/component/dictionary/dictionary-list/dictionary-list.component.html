@@ -1,0 +1,16 @@
+<h2>Dictionary</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Word</th>
+    <th>Meaning</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let word of dictionaries">
+    <td scope="row">{{word.word}}</td>
+    <td><a [routerLink]="['/dictionary', word.id]">Show detail</a></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
