@@ -1,0 +1,213 @@
+{
+  "facilitys": [
+    {
+      "id": 1,
+      "name": "LAGOON SUPERIOR",
+      "area": "85m2",
+      "price": "1000",
+      "maxPeople": "5",
+      "type": "Month",
+      "img": "../assets/img/serviceImg.jpg"
+    },
+    {
+      "id": 2,
+      "name": "GARDEN DELUXE",
+      "area": "85m2",
+      "price": 1000,
+      "maxPeople": 5,
+      "type": "Month",
+      "img": "../assets/img/serviceImg.jpg"
+    },
+    {
+      "id": "3",
+      "name": "11",
+      "area": "11",
+      "price": "11",
+      "maxPeople": "11",
+      "type": "11",
+      "img": "../assets/img/serviceImg.jpg"
+    }
+  ],
+  "customers": [
+    {
+      "id": "KH-9999",
+      "name": "acerola",
+      "birthday": "2023-03-03",
+      "idCard": "1231231233",
+      "gender": "true",
+      "phone": "0977173701",
+      "email": "acecrola@gmail.com",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 5,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": "KH-3333",
+      "name": "suga",
+      "birthday": "2023-03-09",
+      "idCard": "1231231233",
+      "gender": true,
+      "phone": "0977173701",
+      "email": "acecrola@gmail.com",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 4,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": "KH-2222",
+      "name": "Nam",
+      "birthday": "2023-03-07",
+      "idCard": "1231231233",
+      "gender": true,
+      "phone": "0977173701",
+      "email": "hon22@gmail.com",
+      "address": "280 lê đại hành",
+      "type": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": "KH-8888",
+      "name": "An",
+      "birthday": "2023-02-28",
+      "idCard": "1231231233",
+      "gender": true,
+      "phone": "0977173701",
+      "email": "acecrola@gmail.com",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 2,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": "KH-9876",
+      "name": "Tranh",
+      "birthday": "2023-03-02",
+      "idCard": "1231231233",
+      "gender": true,
+      "phone": "0977173701",
+      "email": "hon22@gmail.comff",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 4,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": "KH-1234",
+      "name": "Uyên",
+      "birthday": "2023-03-02",
+      "idCard": "1231231233",
+      "gender": true,
+      "phone": "0977173701",
+      "email": "acecrola@gmail.com",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 5,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": "KH-1235",
+      "name": "Minh",
+      "birthday": "1993-02-02",
+      "idCard": "123456089",
+      "gender": true,
+      "phone": "0123456789",
+      "email": "hominh88@gmail.com",
+      "address": "157 đô đốc tuyết",
+      "type": {
+        "id": 3,
+        "name": "Gold"
+      }
+    }
+  ],
+  "typeCustomer": [
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Platinium"
+    },
+    {
+      "id": 5,
+      "name": "Diamond"
+    }
+  ],
+  "contact": [
+    {
+      "id": "33",
+      "customer": {
+        "id": "KH-3333",
+        "name": "suga",
+        "birthday": "2023-03-09",
+        "idCard": "1231231233",
+        "gender": true,
+        "phone": "0977173701",
+        "email": "acecrola@gmail.com",
+        "address": "157 đô đốc tuyết",
+        "type": {
+          "id": 4,
+          "name": "Platinium"
+        }
+      },
+      "service": {
+        "id": 8,
+        "name": "GARDEN DELUXE",
+        "area": "85m2",
+        "price": 1000,
+        "maxPeople": 5,
+        "type": "Month",
+        "img": "../assets/img/serviceImg.jpg"
+      },
+      "startDate": "2023-03-02",
+      "endDate": "2023-03-17",
+      "money": "11111"
+    },
+    {
+      "id": "6",
+      "customer": {
+        "id": "KH-9876",
+        "name": "Tranh",
+        "birthday": "2023-03-02",
+        "idCard": "1231231233",
+        "gender": true,
+        "phone": "0977173701",
+        "email": "hon22@gmail.comff",
+        "address": "157 đô đốc tuyết",
+        "type": {
+          "id": 4,
+          "name": "Platinium"
+        }
+      },
+      "service": {
+        "id": 4,
+        "name": "LAGOON SUPERIOR",
+        "area": "85m2",
+        "price": "1000",
+        "maxPeople": "5",
+        "type": "Month",
+        "img": "../assets/img/serviceImg.jpg"
+      },
+      "startDate": "2023-03-10",
+      "endDate": "2023-03-10",
+      "money": "123123"
+    }
+  ]
+}

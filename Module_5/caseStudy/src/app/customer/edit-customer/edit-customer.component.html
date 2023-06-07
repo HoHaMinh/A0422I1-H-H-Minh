@@ -1,0 +1,78 @@
+<h2>Edit Customer</h2>
+<form [formGroup]="customerForm" (ngSubmit)="updateCustomer()">
+  <div class="mb-3">
+    <label class="form-label">id</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+           formControlName="id" name="id" ngModel="{{customer.id}}">
+    <p style="color: red" *ngIf="customerForm.controls.id.hasError('required') && customerForm.controls.id.touched">Id
+      Không Được để trống</p>
+    <p style="color: red" *ngIf="customerForm.controls.id.hasError('pattern') && customerForm.controls.id.touched">Id
+      Sai Pattern KH-XXXX</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="name" name="name"
+           ngModel="{{customer.name}}">
+    <p style="color: red" *ngIf="customerForm.controls.name.hasError('required') && customerForm.controls.name.touched">
+      name Không Được để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">birthday</label>
+    <input type="date" class="form-control" formControlName="birthday" name="birthday" ngModel="{{customer.birthday}}">
+    <p style="color: red"
+       *ngIf="customerForm.controls.birthday.hasError('required') && customerForm.controls.birthday.touched">birthday
+      Không Được để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" value=true name="gender" formControlName="gender" ngModel="{{customer.gender}}">Nam
+    <input type="radio" value=false name="gender" formControlName="gender" ngModel="{{customer.gender}}">Nu
+  </div>
+  <div class="mb-3">
+    <label class="form-label">idCard</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="idCard" name="idCard"
+           ngModel="{{customer.idCard}}">
+    <p style="color: red"
+       *ngIf="customerForm.controls.idCard.hasError('required') && customerForm.controls.idCard.touched">idCard Không
+      Được để trống</p>
+    <p style="color: red"
+       *ngIf="customerForm.controls.idCard.hasError('minlength') && customerForm.controls.idCard.touched">idCard Phai
+      lon hon 9 so</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="phone" name="phone"
+           ngModel="{{customer.phone}}">
+    <p style="color: red"
+       *ngIf="customerForm.controls.phone.hasError('required') && customerForm.controls.phone.touched">Phone Không Được
+      để trống</p>
+    <!--    <p style="color: red" *ngIf="customerForm.controls.phone.hasError('pattern') && customerForm.controls.phone.touched">Phone Sai Pattern +84-xxxxxxxxx</p>-->
+  </div>
+  <div class="mb-3">
+    <label class="form-label">email</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" name="email"
+           ngModel="{{customer.email}}">
+    <p style="color: red"
+       *ngIf="customerForm.controls.email.hasError('required') && customerForm.controls.email.touched">email Không Được
+      để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">address</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="address" name="address"
+           ngModel="{{customer.address}}">
+    <p style="color: red"
+       *ngIf="customerForm.controls.address.hasError('required') && customerForm.controls.address.touched">address Không
+      Được để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">type</label>
+    <select formControlName="type" name="type" [(ngModel)]="customer.type">
+      <option [ngValue]="customer.type" >{{customer.type.name}}</option>
+      <option class="form-control" *ngFor="let item of typeCustomer" [ngValue]="item">{{item.name}}</option>
+    </select>
+    <p style="color: red"
+       *ngIf="customerForm.controls.type.hasError('required') && customerForm.controls.type.touched">address Không
+      Được để trống</p>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!customerForm.valid">Submit</button>
+</form>

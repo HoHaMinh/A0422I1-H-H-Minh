@@ -1,0 +1,71 @@
+<h4>Customer</h4>
+<hr>
+<button class="btn btn-warning" [routerLink]="['/customer/create']" >Create</button>
+<div>
+  <input placeholder="search" #searchValue (keyup)="search(searchValue.value,field.value)">
+  <select name="field" id="field" #field>
+    <option value="id">Id</option>
+    <option value="name">Name</option>
+  </select>
+  <button (click)="search(searchValue.value,field.value)">Search</button>
+</div>
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <td ><button (click)="sortById()">id</button></td>
+    <td>name</td>
+    <td>birthday</td>
+    <td>gender</td>
+    <td>idCard</td>
+    <td>phone</td>
+    <td>email</td>
+    <td>address</td>
+    <td>type</td>
+    <td>action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.id}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.birthday}}</td>
+    <td *ngIf="customer.gender == true;else elseBlock">Nam</td>
+    <ng-template #elseBlock>
+      <td>Nu</td>
+    </ng-template>
+    <td>{{customer.idCard}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.address}}</td>
+    <td>{{customer.type.name}}</td>
+    <td>
+      <button class="btn btn-primary" [routerLink]="['/customer/edit/',customer.id]">Edit</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="changeDeleteId(customer.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Delete this customer ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="doDelete(deleteCustomerId)" data-bs-dismiss="modal">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
