@@ -1,0 +1,34 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "iphone 11",
+      "price": 100000,
+      "description": "iphone",
+      "category": {
+        "id": 1,
+        "name": "smartphone"
+      }
+    },
+    {
+      "id": 2,
+      "name": "iphone 12",
+      "price": 200000,
+      "description": "iphone",
+      "category": {
+        "id": 1,
+        "name": "smartphone"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "smartphone"
+    },
+    {
+      "id": 2,
+      "name": "test"
+    }
+  ]
+}
