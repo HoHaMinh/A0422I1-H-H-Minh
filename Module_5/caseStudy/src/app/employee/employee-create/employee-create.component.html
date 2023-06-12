@@ -1,0 +1,90 @@
+<h2>Create Employee</h2>
+<form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+  <div class="mb-3">
+    <label class="form-label">id</label>
+    <input type="text" class="form-control" formControlName="id" name="id" aria-describedby="emailHelp">
+    <p style="color: red" *ngIf="employeeForm.controls.id.hasError('required') && employeeForm.controls.id.touched">Id
+      Không Được để trống</p>
+    <p style="color: red" *ngIf="employeeForm.controls.id.hasError('pattern') && employeeForm.controls.id.touched">Id
+      Sai Pattern NV-XXXX</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="name" name="name">
+    <p style="color: red" *ngIf="employeeForm.controls.name.hasError('required') && employeeForm.controls.name.touched">
+      name Không Được để trống</p>
+    <p style="color: red" *ngIf="employeeForm.controls.name.hasError('minLength') && employeeForm.controls.name.touched">
+      name tối thiểu có 1 ký tự</p>
+    <p style="color: red" *ngIf="employeeForm.controls.name.hasError('maxLength') && employeeForm.controls.name.touched">
+      name tối đa có 255 ký tự</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">birthday</label>
+    <input type="date" class="form-control" formControlName="birthday" name="birthday">
+    <p style="color: red"
+       *ngIf="employeeForm.controls.birthday.hasError('required') && employeeForm.controls.birthday.touched">birthday
+      Không Được để trống</p>
+  </div>
+<!--  <div class="mb-3">-->
+<!--    <label class="form-label">Gender</label><br>-->
+<!--    <input type="radio" [value]="true" name="gender" formControlName="gender">Nam-->
+<!--    <input type="radio" [value]="false" name="gender" formControlName="gender">Nu-->
+<!--  </div>-->
+  <div class="mb-3">
+    <label class="form-label">Person Code</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="personCode" name="personCode">
+    <p style="color: red"
+       *ngIf="employeeForm.controls.personCode.hasError('required') && employeeForm.controls.personCode.touched">Person code Không
+      Được để trống</p>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.personCode.hasError('pattern') && employeeForm.controls.personCode.touched">Person code Phai
+      đủ 9 so</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="phoneNumber" name="phoneNumber">
+    <p style="color: red"
+       *ngIf="employeeForm.controls.phoneNumber.hasError('required') && employeeForm.controls.phoneNumber.touched">Phone Không Được
+      để trống</p>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.phoneNumber.hasError('pattern') && employeeForm.controls.phoneNumber.touched">Phone Sai Pattern 090xxxxxxx</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">email</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="email" name="email">
+    <p style="color: red"
+       *ngIf="employeeForm.controls.email.hasError('required') && employeeForm.controls.email.touched">email Không Được
+      để trống</p>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.email.hasError('pattern') && employeeForm.controls.email.touched">email phai theo pattenr xxx@xxx.com</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">educationLevel</label>
+    <select formControlName="educationLevel" name="educationLevel">
+      <option class="form-control" *ngFor="let e of education" [ngValue]="e">{{e.name}}</option>
+    </select>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.educationLevel.hasError('required') && employeeForm.controls.educationLevel.touched">educationLevel Không
+      Được để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">position</label>
+    <select formControlName="position" name="position">
+      <option class="form-control" *ngFor="let p of position" [ngValue]="p">{{p.name}}</option>
+    </select>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.position.hasError('required') && employeeForm.controls.position.touched">position Không
+      Được để trống</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">salary</label>
+    <input type="number" class="form-control" aria-describedby="emailHelp" formControlName="salary" name="salary">
+    <p style="color: red"
+       *ngIf="employeeForm.controls.salary.hasError('required') && employeeForm.controls.salary.touched">salary Không Được
+      để trống</p>
+    <p style="color: red"
+       *ngIf="employeeForm.controls.salary.hasError('min') && employeeForm.controls.salary.touched">salary phai la so duong </p>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Submit</button>
+</form>
+

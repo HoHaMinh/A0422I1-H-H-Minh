@@ -1,0 +1,75 @@
+<h4>Employee</h4>
+<hr>
+<button class="btn btn-warning" [routerLink]="['/employee/create']">Create</button>
+<div>
+  <input placeholder="search" #searchValue (keyup)="search(searchValue.value,field.value)">
+  <select name="field" id="field" #field>
+    <option value="id">Id</option>
+    <option value="name">Name</option>
+  </select>
+  <button (click)="search(searchValue.value,field.value)">Search</button>
+</div>
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <td>
+      <button (click)="sortById()">id</button>
+    </td>
+    <td>name</td>
+    <td>birthday</td>
+    <td>Person Code</td>
+    <td>phone</td>
+    <td>email</td>
+    <td>Education Level</td>
+    <td>Position</td>
+    <td>Salary</td>
+    <td>action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let e of employee| paginate: { itemsPerPage: 1, currentPage: p }">
+    <td>{{e.id}}</td>
+    <td>{{e.name}}</td>
+    <td>{{e.birthday}}</td>
+    <!--    <td *ngIf="customer.gender == true;else elseBlock">Nam</td>-->
+    <!--    <ng-template #elseBlock>-->
+    <!--      <td>Nu</td>-->
+    <!--    </ng-template>-->
+    <td>{{e.personCode}}</td>
+    <td>{{e.phoneNumber}}</td>
+    <td>{{e.email}}</td>
+    <td>{{e.educationLevel.name}}</td>
+    <td>{{e.position.name}}</td>
+    <td>{{e.salary}}</td>
+    <td>
+      <button class="btn btn-primary" [routerLink]="['/employee/edit/',e.id]">Edit</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="changeDeleteId(e.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls>
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Delete this employee ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="doDelete(deleteEmployeeId)" data-bs-dismiss="modal">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

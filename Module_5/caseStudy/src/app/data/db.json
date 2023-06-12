@@ -209,5 +209,94 @@
       "endDate": "2023-03-10",
       "money": "123123"
     }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": "intermediate"
+    },
+    {
+      "id": 2,
+      "name": "college"
+    },
+    {
+      "id": 3,
+      "name": "University"
+    },
+    {
+      "id": 4,
+      "name": "Master"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "reception"
+    },
+    {
+      "id": 2,
+      "name": "staff"
+    },
+    {
+      "id": 3,
+      "name": "supervisor"
+    },
+    {
+      "id": 4,
+      "name": "manager"
+    }
+  ],
+  "employee": [
+    {
+      "id": "NV-1111",
+      "name": "Ai",
+      "birthday": "1996-07-06",
+      "personCode": "999999999",
+      "phoneNumber": "0909434836",
+      "email": "ai@gmail.com",
+      "educationLevel": {
+        "id": 4,
+        "name": "Master"
+      },
+      "position": {
+        "id": 4,
+        "name": "manager"
+      },
+      "salary": 2
+    },
+    {
+      "id": "NV-2222",
+      "name": "Nam",
+      "birthday": "18/09/1998",
+      "personCode": "945233",
+      "phoneNumber": "0123456987",
+      "email": "nam@gmail.com",
+      "educationLevel": {
+        "id": 4,
+        "name": "Master"
+      },
+      "position": {
+        "id": 3,
+        "name": "supervisor"
+      },
+      "salary": "15000000"
+    },
+    {
+      "id": "NV-3333",
+      "name": "Danh",
+      "birthday": "14/03/1996",
+      "personCode": "012233",
+      "phoneNumber": "0456456987",
+      "email": "danh@gmail.com",
+      "educationLevel": {
+        "id": 2,
+        "name": "college"
+      },
+      "position": {
+        "id": 2,
+        "name": "staff"
+      },
+      "salary": "10000000"
+    }
   ]
 }

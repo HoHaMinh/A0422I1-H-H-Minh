@@ -9,6 +9,10 @@ import { ListCustomerComponent } from './customer/list-customer/list-customer.co
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeCreateComponent } from './employee/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { HttpClientModule } from '@angular/common/http';
     CreateCustomerComponent,
     EditCustomerComponent,
     ListCustomerComponent,
+    EmployeeListComponent,
+    EmployeeCreateComponent,
+    EmployeeEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

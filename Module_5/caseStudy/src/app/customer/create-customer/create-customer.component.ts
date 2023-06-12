@@ -52,6 +52,4 @@ export class CreateCustomerComponent implements OnInit {
       this.route.navigateByUrl('/customer/list');
     });
   }
-
-
 }
